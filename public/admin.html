@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="api-base" content="">
+<title>Yuzhou Crystal — 询单管理后台</title>
+<style>
+  :root{
+    --ink:#14161e; --ink-2:#5b5f6b; --faint:#9aa0ad; --line:#e7e8ec;
+    --brand:#b4232c; --brand-d:#8f1b23; --ok:#1d7a4d; --bg:#f6f7f9; --card:#fff;
+    --shadow:0 1px 3px rgba(20,22,30,.08),0 6px 24px rgba(20,22,30,.06);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);font-size:14px;line-height:1.5}
+  header{display:flex;align-items:center;justify-content:space-between;padding:16px 26px;background:#fff;
+    border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+  header h1{font-size:16px;margin:0;letter-spacing:.02em}
+  header .brand{color:var(--brand);font-weight:800}
+  .wrap{max-width:1120px;margin:0 auto;padding:22px 26px 60px}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;box-shadow:var(--shadow)}
+  .stat .n{font-size:26px;font-weight:800;line-height:1}
+  .stat .l{color:var(--ink-2);font-size:12px;margin-top:6px}
+  .stat.new .n{color:var(--brand)}
+  .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+  .toolbar input,.toolbar select{font:inherit;padding:9px 11px;border:1px solid var(--line);border-radius:8px;background:#fff}
+  .toolbar input[type=search]{min-width:220px;flex:1}
+  .tabs{display:flex;gap:6px;margin-bottom:16px}
+  .tab{border:1px solid var(--line);background:#fff;border-radius:8px;padding:9px 16px;cursor:pointer;font:inherit;font-weight:600;color:var(--ink-2)}
+  .tab.active{background:var(--brand);border-color:var(--brand);color:#fff}
+  .btn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:9px 14px;cursor:pointer;font:inherit;font-weight:600}
+  .btn:hover{border-color:#c9ccd3}
+  .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+  .btn.primary:hover{background:var(--brand-d)}
+  .btn.tiny{padding:5px 9px;font-size:12px}
+  .btn.danger{border-color:#f1b0b0;color:#c0392b;background:#fff}
+  .btn.danger:hover{background:#fdecea;border-color:#e08e8e}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
+  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:12px;color:var(--ink-2);background:#fafbfc;white-space:nowrap}
+  tbody tr{cursor:pointer}
+  tbody tr:hover{background:#fafbfc}
+  .badge{display:inline-block;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px}
+  .b-new{background:#fde8ea;color:var(--brand)}
+  .b-contacted{background:#e8f0fe;color:#2351b4}
+  .b-quoted{background:#e9f7ef;color:#1a7a4d}
+  .b-done{background:#eef0f3;color:#5b5f6b}
+  .b-archived{background:#f1e9f3;color:#7a4ba0}
+  .muted{color:var(--faint)}
+  .empty{padding:40px;text-align:center;color:var(--faint)}
+  .overlay{position:fixed;inset:0;background:rgba(20,22,30,.45);display:none;align-items:flex-start;justify-content:center;padding:40px 16px;overflow:auto;z-index:20}
+  .overlay.open{display:flex}
+  .modal{background:#fff;border-radius:12px;max-width:640px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .modal header{border:0;position:static;display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid var(--line)}
+  .modal header h2{font-size:16px;margin:0}
+  .modal .body{padding:20px 22px}
+  .modal .foot{padding:14px 22px;border-top:1px solid var(--line);display:flex;gap:10px;justify-content:flex-end;align-items:center}
+  .kv{display:grid;grid-template-columns:110px 1fr;gap:8px 12px;margin:0 0 14px}
+  .kv dt{color:var(--ink-2);font-size:12px}
+  .kv dd{margin:0}
+  .items{list-style:none;padding:0;margin:0;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .items li{display:flex;justify-content:space-between;padding:9px 12px;border-bottom:1px solid var(--line)}
+  .items li:last-child{border-bottom:0}
+  .imgwrap{margin-top:12px}
+  .imgwrap img{max-width:100%;border:1px solid var(--line);border-radius:8px}
+  .close{cursor:pointer;border:0;background:transparent;font-size:20px;line-height:1;color:var(--ink-2)}
+  #login{max-width:380px;margin:120px auto;background:#fff;border:1px solid var(--line);border-radius:12px;padding:28px;box-shadow:var(--shadow)}
+  #login h2{margin:0 0 6px}
+  #login p{color:var(--ink-2);margin:0 0 16px;font-size:13px}
+  #login input{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:8px;font:inherit;margin-bottom:12px}
+  #login .err{color:var(--brand);font-size:12px;margin-top:8px;min-height:16px}
+  .hidden{display:none!important}
+  @media(max-width:680px){.stats{grid-template-columns:repeat(2,1fr)}.kv{grid-template-columns:96px 1fr}}
+</style>
+</head>
+<body>
+
+<div id="login">
+  <h2>管理员登录</h2>
+  <p>请输入账号与密码查看客户询单。</p>
+  <input id="login-user" type="text" placeholder="账号" autocomplete="username">
+  <input id="login-pass" type="password" placeholder="密码" autocomplete="current-password">
+  <button class="btn primary" id="login-btn" style="width:100%">登 录</button>
+  <div class="err" id="login-err"></div>
+</div>
+
+<div id="app" class="hidden">
+  <header>
+    <h1><span class="brand">Yuzhou Crystal</span> · 询单管理后台</h1>
+    <div style="display:flex;gap:8px;align-items:center">
+      <span class="muted" id="who" style="font-size:12px"></span>
+      <button class="btn tiny" id="export-btn">导出 CSV</button>
+      <button class="btn tiny" id="logout-btn">退出登录</button>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="tabs">
+      <button class="tab active" data-tab="inquiries">询单管理</button>
+      <button class="tab" data-tab="products">产品管理</button>
+    </div>
+    <div id="inquiries-section">
+    <div class="stats">
+      <div class="stat"><div class="n" id="st-total">0</div><div class="l">询单总数</div></div>
+      <div class="stat"><div class="n" id="st-product">0</div><div class="l">产品询价</div></div>
+      <div class="stat"><div class="n" id="st-custom">0</div><div class="l">定制需求</div></div>
+      <div class="stat new"><div class="n" id="st-new">0</div><div class="l">未处理（新）</div></div>
+    </div>
+
+    <div class="toolbar">
+      <select id="f-type">
+        <option value="">全部类型</option>
+        <option value="product">产品询价</option>
+        <option value="custom">定制需求</option>
+      </select>
+      <select id="f-status">
+        <option value="">全部状态</option>
+        <option value="new">新询单</option>
+        <option value="contacted">已联系</option>
+        <option value="quoted">已报价</option>
+        <option value="done">已完成</option>
+        <option value="archived">已归档</option>
+      </select>
+      <input type="search" id="f-q" placeholder="搜索姓名、公司或邮箱…">
+      <button class="btn" id="refresh-btn">刷新</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>编号</th><th>类型</th><th>提交时间</th><th>姓名</th><th>公司</th><th>邮箱</th><th>摘要</th><th>状态</th><th>操作</th></tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+      <div class="empty hidden" id="empty">没有符合条件的询单。</div>
+    </div>
+
+    <div id="products-section" class="hidden">
+      <div class="toolbar">
+        <select id="p-cat">
+          <option value="">全部分类</option>
+          <option value="trophies">奖杯奖牌</option>
+          <option value="figurines">家居装饰</option>
+          <option value="office">办公礼品</option>
+          <option value="frames">水晶相框</option>
+          <option value="candles">水晶烛台</option>
+          <option value="tableware">餐具酒具</option>
+          <option value="perfume">香氛时尚</option>
+          <option value="vases">水晶花瓶</option>
+        </select>
+        <input type="search" id="p-q" placeholder="搜索产品名称…">
+        <button class="btn primary" id="p-new">+ 新增产品</button>
+      </div>
+      <table>
+        <thead><tr><th>编号</th><th>图片</th><th>名称</th><th>分类</th><th>排序</th><th>操作</th></tr></thead>
+        <tbody id="p-rows"></tbody>
+      </table>
+      <div class="empty hidden" id="p-empty">还没有产品，点“新增产品”添加。</div>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <header><h2 id="m-title">询单详情</h2><button class="close" id="m-close">×</button></header>
+    <div class="body" id="m-body"></div>
+    <div class="foot">
+      <select id="m-status"></select>
+      <button class="btn primary" id="m-save">更新状态</button>
+    </div>
+  </div>
+</div>
+
+    <div class="overlay" id="prod-overlay">
+      <div class="modal">
+        <header><h2 id="prod-title">新增产品</h2><button class="close" id="prod-close">×</button></header>
+        <div class="body">
+          <form id="prod-form">
+            <div class="field" style="margin-bottom:12px"><label>产品名称 *</label><input name="name" style="width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font:inherit"></div>
+            <div class="field" style="margin-bottom:12px"><label>分类</label><select name="category" style="width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font:inherit">
+              <option value="trophies">奖杯奖牌</option><option value="figurines">家居装饰</option><option value="office">办公礼品</option><option value="frames">水晶相框</option><option value="candles">水晶烛台</option><option value="tableware">餐具酒具</option><option value="perfume">香氛时尚</option><option value="vases">水晶花瓶</option>
+            </select></div>
+            <div class="field" style="margin-bottom:12px"><label>描述</label><textarea name="description" rows="3" style="width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font:inherit"></textarea></div>
+            <div class="field" style="margin-bottom:12px"><label>规格参数（每行 Key: Value）</label><textarea name="specs" rows="4" placeholder="Material: K9 optical crystal&#10;Size: H 20 cm&#10;MOQ: 100 pcs" style="width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font:inherit"></textarea></div>
+            <div class="field" style="margin-bottom:12px"><label>排序（数字小在前）</label><input name="sort_order" type="number" value="0" style="width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font:inherit"></div>
+            <div class="field"><label>产品图片</label><input type="file" name="image" accept="image/*"><div class="imgwrap" id="prod-preview"></div></div>
+          </form>
+        </div>
+        <div class="foot">
+          <button class="btn tiny" id="prod-del" style="margin-right:auto;color:var(--brand)">删除</button>
+          <button class="btn" id="prod-cancel">取消</button>
+          <button class="btn primary" id="prod-save">保存</button>
+        </div>
+      </div>
+    </div>
+
+<script>
+(function(){
+  'use strict';
+  var API_BASE = ((document.querySelector('meta[name="api-base"]')||{}).content||'').replace(/\/+$/,'');
+  var tokenKey = 'yc_admin_token';
+  var userKey = 'yc_admin_user';
+  // 兼容模式：旧版用 ADMIN_TOKEN 登录；新版用账号密码（会话 Cookie 由服务端下发）
+  var token = localStorage.getItem(tokenKey) || '';
+
+  var TYPE_ZH = { product: '产品', custom: '定制' };
+  var STATUS_ZH = { new: '新询单', contacted: '已联系', quoted: '已报价', done: '已完成', archived: '已归档' };
+
+  function authHeaders(){
+    var h = {};
+    if(token) h['x-admin-token'] = token; // 兼容旧令牌方式
+    return h;
+  }
+  function api(path, opts){
+    opts = opts || {};
+    opts.headers = Object.assign({}, opts.headers, authHeaders());
+    // 会话 Cookie 由浏览器在同域请求时自动携带，无需手动加头
+    return fetch(API_BASE + path, opts).then(function(r){
+      if(r.status===401){ logout(); throw new Error('未授权'); }
+      return r;
+    });
+  }
+  function badge(s){ return '<span class="badge b-'+s+'">'+(STATUS_ZH[s]||s)+'</span>'; }
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){
+    return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]); }); }
+  function fmtDate(d){ return (d||'').replace(' ',' · '); }
+
+  function show(el,on){ el.classList.toggle('hidden', !on); }
+
+  function login(){
+    var user = document.getElementById('login-user').value.trim();
+    var pass = document.getElementById('login-pass').value;
+    if(!user || !pass){ document.getElementById('login-err').textContent='请输入账号和密码。'; return; }
+    fetch(API_BASE + '/api/admin/login', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ user: user, pass: pass })
+    }).then(function(r){ return r.json().then(function(j){ return { ok:r.ok, j:j }; }); })
+      .then(function(o){
+        if(o.ok && o.j.ok){
+          token=''; localStorage.removeItem(tokenKey);
+          localStorage.setItem(userKey, o.j.user);
+          enter(o.j.user);
+        } else {
+          document.getElementById('login-err').textContent = (o.j && o.j.error) || '登录失败。';
+        }
+      }).catch(function(){ document.getElementById('login-err').textContent='登录失败，请重试。'; });
+  }
+  function logout(){
+    token=''; localStorage.removeItem(tokenKey); localStorage.removeItem(userKey);
+    fetch(API_BASE + '/api/admin/logout', { method:'POST' }).catch(function(){});
+    show(document.getElementById('app'),false); show(document.getElementById('login'),true);
+  }
+  function enter(user){
+    user = user || localStorage.getItem(userKey) || '';
+    show(document.getElementById('login'),false); show(document.getElementById('app'),true);
+    document.getElementById('who').textContent = user ? user : (token ? token.slice(0,6)+'…' : '');
+    loadAll();
+  }
+
+  function filters(){
+    var p = new URLSearchParams();
+    var t = document.getElementById('f-type').value;
+    var s = document.getElementById('f-status').value;
+    var q = document.getElementById('f-q').value.trim();
+    if(t) p.set('type',t); if(s) p.set('status',s); if(q) p.set('q',q);
+    return p.toString();
+  }
+
+  function loadStats(){
+    api('/api/admin/inquiries/stats').then(function(r){return r.json();}).then(function(j){
+      if(!j.ok) return;
+      document.getElementById('st-total').textContent = j.total;
+      document.getElementById('st-product').textContent = j.product;
+      document.getElementById('st-custom').textContent = j.custom;
+      document.getElementById('st-new').textContent = j.new;
+    }).catch(function(){});
+  }
+
+  function summary(r){
+    if(r.type==='product'){
+      return (r.data.items||[]).map(function(i){return i.name+' ×'+i.qty;}).join('，');
+    }
+    var d=r.data||{}, f=['ptype','size','material','qty','deadline'];
+    return f.filter(function(k){return d[k];}).map(function(k){return d[k]||'';}).join(' · ') || (d.brief||'').slice(0,80);
+  }
+
+  function loadList(){
+    api('/api/admin/inquiries?'+filters()).then(function(r){return r.json();}).then(function(j){
+      if(j.stats){
+        document.getElementById('st-total').textContent = j.stats.total;
+        document.getElementById('st-product').textContent = j.stats.product;
+        document.getElementById('st-custom').textContent = j.stats.custom;
+        document.getElementById('st-new').textContent = j.stats.new;
+      }
+      var rows = document.getElementById('rows'); rows.innerHTML='';
+      if(!j.ok || !j.rows.length){ show(document.getElementById('empty'),true); return; }
+      show(document.getElementById('empty'),false);
+      j.rows.forEach(function(r){
+        var tr=document.createElement('tr');
+        var canDelete = r.status !== 'new';
+        tr.innerHTML = '<td>'+r.id+'</td><td>'+esc(TYPE_ZH[r.type]||r.type)+'</td><td class="muted">'+esc(fmtDate(r.created_at))+'</td>'+
+          '<td>'+esc(r.name||'')+'</td><td>'+esc(r.company||'')+'</td><td>'+esc(r.email||'')+'</td>'+
+          '<td class="muted">'+esc(summary(r).slice(0,90))+'</td><td>'+badge(r.status)+'</td>'+
+          '<td>'+(canDelete ? '<button class="btn tiny danger" data-del="'+r.id+'">删除</button>' : '<span class="muted">—</span>')+'</td>';
+        tr.onclick=function(){ openDetail(r.id); };
+        if(canDelete){
+          var delBtn = tr.querySelector('[data-del]');
+          delBtn.onclick = function(e){ e.stopPropagation(); deleteInquiry(r.id); };
+        }
+        rows.appendChild(tr);
+      });
+    }).catch(function(){});
+  }
+  function loadAll(){ loadList(); }
+
+  function openDetail(id){
+    api('/api/admin/inquiry/'+id).then(function(r){return r.json();}).then(function(j){
+      if(!j.ok) return;
+      var r=j.inquiry;
+      var html='<dl class="kv">';
+      html+='<dt>编号</dt><dd>'+r.id+'</dd>';
+      html+='<dt>类型</dt><dd>'+esc(TYPE_ZH[r.type]||r.type)+'</dd>';
+      html+='<dt>提交时间</dt><dd>'+esc(r.created_at)+'</dd>';
+      html+='<dt>姓名</dt><dd>'+esc(r.name||'')+'</dd>';
+      html+='<dt>公司</dt><dd>'+esc(r.company||'')+'</dd>';
+      html+='<dt>邮箱</dt><dd><a href="mailto:'+esc(r.email)+'">'+esc(r.email||'')+'</a></dd>';
+      html+='<dt>国家</dt><dd>'+esc(r.country||'')+'</dd>';
+      html+='<dt>状态</dt><dd>'+badge(r.status)+'</dd>';
+      html+='</dl>';
+      if(r.type==='product'){
+        html+='<div style="font-size:12px;color:var(--ink-2);margin:6px 0 8px">询价产品</div>';
+        html+='<ul class="items">';
+        (r.data.items||[]).forEach(function(i){ html+='<li><span>'+esc(i.name)+(i.moq?' <span class="muted">('+esc(i.moq)+')</span>':'')+'</span><span>×'+esc(i.qty)+'</span></li>'; });
+        html+='</ul>';
+        if(r.data.message) html+='<p style="margin-top:12px"><strong>留言：</strong><br>'+esc(r.data.message)+'</p>';
+      } else {
+        var d=r.data||{}, order=['ptype','size','material','qty','customization','deadline','brief'];
+        var LABEL={ptype:'产品类型',size:'期望尺寸',material:'材质',qty:'目标数量',customization:'定制内容',deadline:'交付期限',brief:'详细需求'};
+        html+='<dl class="kv">';
+        order.forEach(function(k){ if(d[k]) html+='<dt>'+LABEL[k]+'</dt><dd>'+esc(d[k])+'</dd>'; });
+        html+='</dl>';
+        if(r.image) {
+          html+='<div class="imgwrap"><strong>参考图：</strong><br>'+
+            '<a id="m-imglink" target="_blank"><img id="m-img" alt="参考图" style="cursor:zoom-in"></a></a><br>'+
+            '<a id="m-imgdl" download target="_blank">下载图片</a></div>';
+        }
+      }
+      document.getElementById('m-body').innerHTML=html;
+      // 通过带鉴权的 fetch 拉取图片（避免 <img> 无法带令牌、被预览代理拦截的问题），再以 blob 显示/下载
+      if(r.image){
+        fetch('/api/admin/inquiry/'+r.id+'/image', {headers: authHeaders()})
+          .then(function(r2){ return r2.ok ? r2.blob() : Promise.reject(); })
+          .then(function(b){
+            var u=URL.createObjectURL(b);
+            var im=document.getElementById('m-img'), lk=document.getElementById('m-imglink'), dl=document.getElementById('m-imgdl');
+            if(im) im.src=u; if(lk) lk.href=u; if(dl) dl.href=u;
+          })
+          .catch(function(){ var im=document.getElementById('m-img'); if(im) im.alt='图片加载失败'; });
+      }
+      document.getElementById('m-title').textContent = (r.type==='custom'?'定制需求':'产品询价')+' #'+r.id;
+      var sel=document.getElementById('m-status');
+      sel.innerHTML = ['new','contacted','quoted','done','archived'].map(function(s){
+        return '<option value="'+s+'"'+(s===r.status?' selected':'')+'>'+STATUS_ZH[s]+'</option>';
+      }).join('');
+      document.getElementById('m-save').onclick=function(){ updateStatus(r.id, sel.value); };
+      document.getElementById('overlay').classList.add('open');
+    }).catch(function(){});
+  }
+  function updateStatus(id, status){
+    api('/api/admin/inquiry/'+id+'/status', {method:'PATCH', headers:{'Content-Type':'application/json'}, body:JSON.stringify({status:status})})
+      .then(function(r){return r.json();}).then(function(j){
+        if(j.ok){ document.getElementById('overlay').classList.remove('open'); loadAll(); }
+        else alert(j.error||'更新失败');
+      }).catch(function(){});
+  }
+  function deleteInquiry(id){
+    if(!confirm('确定删除这条询单吗？删除后不可恢复。\n（新询单不可删除，需先处理或归档）')) return;
+    api('/api/admin/inquiries/'+id, {method:'DELETE'})
+      .then(function(r){return r.json();}).then(function(j){
+        if(j.ok){ loadList(); }
+        else alert(j.error||'删除失败');
+      }).catch(function(){ alert('删除失败，请重试'); });
+  }
+  function exportCsv(){
+    api('/api/admin/export.csv?'+filters()).then(function(r){return r.blob();}).then(function(b){
+      var a=document.createElement('a'); a.href=URL.createObjectURL(b);
+      a.download='询单导出-'+new Date().toISOString().slice(0,10)+'.csv'; a.click();
+      URL.revokeObjectURL(a.href);
+    }).catch(function(){});
+  }
+
+  document.getElementById('login-btn').onclick=login;
+  document.getElementById('login-pass').addEventListener('keydown',function(e){ if(e.key==='Enter') login(); });
+  document.getElementById('logout-btn').onclick=logout;
+  document.getElementById('refresh-btn').onclick=loadAll;
+  document.getElementById('export-btn').onclick=exportCsv;
+  document.getElementById('f-type').onchange=loadList;
+  document.getElementById('f-status').onchange=loadList;
+  document.getElementById('f-q').addEventListener('input', debounce(loadList, 350));
+  document.getElementById('m-close').onclick=function(){ document.getElementById('overlay').classList.remove('open'); };
+  document.getElementById('overlay').onclick=function(e){ if(e.target===this) this.classList.remove('open'); };
+
+  function debounce(fn,ms){ var t; return function(){ clearTimeout(t); t=setTimeout(fn,ms); }; }
+
+  /* ---------- 产品管理 ---------- */
+  var CAT_ZH = { trophies:'奖杯奖牌', figurines:'家居装饰', office:'办公礼品', frames:'水晶相框', candles:'水晶烛台', tableware:'餐具酒具', perfume:'香氛时尚', vases:'水晶花瓶' };
+  function switchTab(name){
+    document.querySelectorAll('.tab').forEach(function(t){ t.classList.toggle('active', t.dataset.tab===name); });
+    show(document.getElementById('inquiries-section'), name==='inquiries');
+    show(document.getElementById('products-section'), name==='products');
+    if(name==='products') loadProducts();
+  }
+  function loadProducts(){
+    var p=new URLSearchParams();
+    var c=document.getElementById('p-cat').value, q=document.getElementById('p-q').value.trim();
+    if(c) p.set('category',c); if(q) p.set('q',q);
+    api('/api/admin/products?'+p.toString()).then(function(r){return r.json();}).then(function(j){
+      var rows=document.getElementById('p-rows'); rows.innerHTML='';
+      if(!j.ok||!j.rows.length){ show(document.getElementById('p-empty'),true); return; }
+      show(document.getElementById('p-empty'),false);
+      j.rows.forEach(function(pr){
+        var tr=document.createElement('tr');
+        tr.innerHTML='<td>'+pr.id+'</td>'+
+          '<td>'+(pr.imageUrl?'<img src="'+esc(pr.imageUrl)+'" style="width:46px;height:46px;object-fit:cover;border-radius:6px">':'<span class="muted">无图</span>')+'</td>'+
+          '<td>'+esc(pr.name)+'</td><td>'+esc(CAT_ZH[pr.category]||pr.category||'')+'</td><td>'+esc(pr.sort_order)+'</td>'+
+          '<td><button class="btn tiny" data-edit="'+pr.id+'">编辑</button> <button class="btn tiny" data-del="'+pr.id+'">删除</button></td>';
+        rows.appendChild(tr);
+      });
+      rows.querySelectorAll('[data-edit]').forEach(function(b){ b.onclick=function(){ openProductForm(b.dataset.edit); }; });
+      rows.querySelectorAll('[data-del]').forEach(function(b){ b.onclick=function(){ if(confirm('确定删除该产品？')) deleteProduct(b.dataset.del); }; });
+    }).catch(function(){});
+  }
+  var prodEditId=null;
+  function openProductForm(id){
+    prodEditId = id || null;
+    var f=document.getElementById('prod-form'); f.reset();
+    document.getElementById('prod-preview').innerHTML='';
+    document.getElementById('prod-del').style.display = id ? '' : 'none';
+    document.getElementById('prod-title').textContent = id ? '编辑产品' : '新增产品';
+    if(id){
+      api('/api/admin/products').then(function(r){return r.json();}).then(function(j){
+        var pr=(j.rows||[]).find(function(x){return String(x.id)===String(id);});
+        if(!pr) return;
+        var els=f.elements;
+        els['name'].value=pr.name||''; els['category'].value=pr.category||''; els['description'].value=pr.description||'';
+        els['specs'].value = pr.specs ? Object.entries(pr.specs).map(function(e){return e[0]+': '+e[1];}).join('\n') : '';
+        els['sort_order'].value=pr.sort_order||0;
+        if(pr.imageUrl) document.getElementById('prod-preview').innerHTML='<img src="'+esc(pr.imageUrl)+'" style="max-width:160px;border:1px solid var(--line);border-radius:8px">';
+      }).catch(function(){});
+    }
+    document.getElementById('prod-overlay').classList.add('open');
+  }
+  function saveProduct(){
+    var f=document.getElementById('prod-form');
+    var fd=new FormData(f);
+    if(!f.elements['name'].value.trim()){ alert('请填写产品名称。'); return; }
+    var url = prodEditId ? '/api/admin/products/'+prodEditId : '/api/admin/products';
+    var method = prodEditId ? 'PATCH' : 'POST';
+    api(url,{method:method, body:fd}).then(function(r){return r.json();}).then(function(j){
+      if(j.ok){ document.getElementById('prod-overlay').classList.remove('open'); loadProducts(); }
+      else alert(j.error||'保存失败');
+    }).catch(function(){ alert('保存失败'); });
+  }
+  function deleteProduct(id){
+    api('/api/admin/products/'+id,{method:'DELETE'}).then(function(r){return r.json();}).then(function(j){
+      if(j.ok) loadProducts(); else alert(j.error||'删除失败');
+    }).catch(function(){});
+  }
+
+  document.querySelectorAll('.tab').forEach(function(t){ t.onclick=function(){ switchTab(t.dataset.tab); }; });
+  document.getElementById('p-new').onclick=function(){ openProductForm(null); };
+  document.getElementById('p-cat').onchange=loadProducts;
+  document.getElementById('p-q').addEventListener('input', debounce(loadProducts, 350));
+  document.getElementById('prod-save').onclick=saveProduct;
+  document.getElementById('prod-cancel').onclick=function(){ document.getElementById('prod-overlay').classList.remove('open'); };
+  document.getElementById('prod-close').onclick=function(){ document.getElementById('prod-overlay').classList.remove('open'); };
+  document.getElementById('prod-del').onclick=function(){ if(prodEditId && confirm('确定删除该产品？')) deleteProduct(prodEditId); };
+  document.getElementById('prod-form').addEventListener('submit', function(e){ e.preventDefault(); });
+  document.getElementById('prod-form').elements['image'].addEventListener('change', function(e){
+    var file=e.target.files[0]; if(!file) return;
+    var r=new FileReader(); r.onload=function(ev){ document.getElementById('prod-preview').innerHTML='<img src="'+ev.target.result+'" style="max-width:160px;border:1px solid var(--line);border-radius:8px">'; };
+    r.readAsDataURL(file);
+  });
+  document.getElementById('prod-overlay').onclick=function(e){ if(e.target===this) this.classList.remove('open'); };
+
+  if(token) enter();
+})();
+</script>
+</body>
+</html>

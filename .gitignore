@@ -1,0 +1,30 @@
+node_modules/
+.env
+*.log
+npm-debug.log*
+
+# Runtime data & uploads
+data/*.db
+data/*.db-wal
+data/*.db-shm
+data/inquiries.jsonl
+uploads/*
+!uploads/.gitkeep
+!data/.gitkeep
+
+# Local backups / archives
+*.bak
+*.bak.*
+*.zip
+*.tar.gz
+*.patch
+*.patch.gz
+
+# Temporary files
+-F
+
+# Production environment config
+env
+
+# Local working copy
+server.js.working
