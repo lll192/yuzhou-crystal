@@ -25,9 +25,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
       - name: Prepare preview
         run: |
           set -e
@@ -40,6 +37,7 @@ jobs:
           test -s _site/index.html
           test -s _site/seo-home.css
           test -s _site/seo-home.js
+          test -s _site/seo-preview.css
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
