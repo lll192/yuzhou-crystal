@@ -25,19 +25,30 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Prepare preview
+      - name: Validate real homepage
+        run: |
+          set -e
+          size=$(wc -c < public/index.html)
+          echo "public/index.html size: ${size} bytes"
+          test "$size" -gt 100000
+          grep -q '<head' public/index.html
+          grep -q '</head>' public/index.html
+          grep -q '<body' public/index.html
+          grep -q '</body>' public/index.html
+          grep -q '</html>' public/index.html
+          grep -q '<title>' public/index.html
+          grep -q 'rel="canonical"' public/index.html
+
+      - name: Prepare real website preview
         run: |
           set -e
           rm -rf _site
           mkdir -p _site
-          cp public/seo-preview.html _site/index.html
-          cp public/seo-home.css _site/seo-home.css
-          cp public/seo-home.js _site/seo-home.js
-          cp public/seo-preview.css _site/seo-preview.css
+          cp -a public/. _site/
           test -s _site/index.html
-          test -s _site/seo-home.css
-          test -s _site/seo-home.js
-          test -s _site/seo-preview.css
+          test "$(wc -c < _site/index.html)" -gt 100000
+          test -f _site/robots.txt || true
+          test -f _site/sitemap.xml || true
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
