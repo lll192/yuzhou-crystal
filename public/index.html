@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="1lJ_jC24lkFN4SkjC-4Rr_HgLgT8H-pfk-iTXrXVnX8" />
+  <!-- Backend API base. Empty = same origin. Set to your API origin when frontend & backend are on different hosts. -->
   <meta name="api-base" content="">
   <script>
     (function () {
@@ -12,13 +13,8 @@
       }
     })();
   </script>
-  <title>Crystal Manufacturer in China | Custom Crystal Awards &amp; Gifts | Yuzhou Crystal</title>
-  <meta name="description" content="Yuzhou Crystal is a China crystal manufacturer specializing in custom crystal awards, trophies, gifts, home decor and precision laser engraving for international buyers, OEM and ODM projects.">
-  <link rel="canonical" href="https://www.crystalwto.com/">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.crystalwto.com/">
-  <meta property="og:title" content="Crystal Manufacturer in China | Custom Crystal Awards &amp; Gifts | Yuzhou Crystal">
-  <meta property="og:description" content="Custom crystal awards, trophies, gifts and engraved products manufactured in China for international buyers, OEM and ODM projects.">
+  <title>Yuzhou Crystal | Crystal Awards, Candle Holders, Frames & Ornaments | China Manufacturer</title>
+  <meta name="description" content="Yuzhou Crystal Co., Ltd. is a crystal & glass craft manufacturer in Pujiang, China. Crystal trophies, candle holders, photo frames and ornaments for wholesale, OEM and ODM. Low MOQ, custom engraving, worldwide export.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='11' fill='%231f2ad4'/%3E%3Ccircle cx='15' cy='13' r='5.5' fill='%23ffffff'/%3E%3Cpath d='M33 10 L14 38' fill='none' stroke='%23f26a1b' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M12 27 H30 L12 39 H36' fill='none' stroke='%23ffffff' stroke-width='4.5' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,3 +38,1668 @@
   --sh-3: 0 30px 70px -28px rgba(20,22,40,0.34);
   --maxw: 1280px; --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --serif: "Cormorant Garamond", Georgia, "Times New Roman", "Songti SC", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; font-family: var(--sans);
+  color: var(--ink); background: var(--bg); line-height: 1.65;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+svg { display: block; }
+.wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
+@media (max-width: 620px) { .wrap { padding: 0 20px; } }
+.section { padding: 104px 0; }
+@media (max-width: 760px) { .section { padding: 64px 0; } }
+
+.eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase; color: var(--muted); }
+h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 500; letter-spacing: -0.01em; line-height: 1.1; font-variant-numeric: lining-nums proportional-nums; font-feature-settings: "lnum" 1, "pnum" 1; }
+.h-sec { font-size: clamp(30px, 4.2vw, 50px); color: var(--ink); }
+.lead { color: var(--muted); font-size: 17px; max-width: 56ch; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  border: 1px solid transparent; border-radius: var(--r-pill);
+  padding: 13px 26px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase;
+  transition: background .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease), transform .2s var(--ease); white-space: nowrap;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--ink); color: #fff; }
+.btn-primary:hover { background: #000; }
+/* Outline buttons — white at rest, ink on hover, smooth crossfade */
+.btn-ghost, .btn-dark { background: #fff; color: var(--ink); border-color: var(--ink); }
+.btn-ghost:hover, .btn-dark:hover, .btn-ghost:focus-visible, .btn-dark:focus-visible { background: var(--ink); color: #fff; border-color: var(--ink); }
+.btn-sm { padding: 10px 18px; font-size: 11px; }
+.btn svg { width: 15px; height: 15px; }
+
+/* =========================================================
+   Header
+   ========================================================= */
+.site-header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.9);
+  backdrop-filter: saturate(140%) blur(12px); -webkit-backdrop-filter: saturate(140%) blur(12px); border-bottom: 1px solid var(--line-2); }
+.nav { display: flex; align-items: center; gap: 30px; height: 78px; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand .logo { width: 34px; height: 34px; flex: none; }
+.brand .bname { display: flex; flex-direction: column; line-height: 1.1; }
+.brand .bname b { font-family: var(--serif); font-size: 20px; font-weight: 600; letter-spacing: 0.14em; color: var(--ink); }
+.brand .bname span { font-size: 9.5px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--faint); margin-top: 1px; }
+.nav-links { display: flex; gap: 30px; margin: 0 auto; }
+.nav-links a { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-2); padding: 8px 0; position: relative; }
+.nav-links a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 0; height: 1px; background: var(--ink); transition: right .3s var(--ease); }
+.nav-links a:hover { color: var(--ink); }
+.nav-links a:hover::after { right: 0; }
+.nav-links a.active { color: var(--ink); font-weight: 800; }
+.nav-links a.active::after { right: 0; }
+.nav-actions { display: flex; align-items: center; gap: 14px; }
+.inquiry-btn { position: relative; }
+.inquiry-btn .count { position: absolute; top: -8px; right: -8px; min-width: 19px; height: 19px; background: var(--brand); color: #fff;
+  border-radius: var(--r-pill); font-size: 11px; font-weight: 700; display: grid; place-items: center; padding: 0 5px;
+  box-shadow: 0 0 0 2px #fff; transform: scale(0); transition: transform .25s var(--ease); }
+.inquiry-btn.has-items .count { transform: scale(1); }
+.hamburger { display: none; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 6px; background: #fff; align-items: center; justify-content: center; }
+.hamburger svg { width: 22px; height: 22px; }
+@media (max-width: 940px) { .nav-links { display: none; } .hamburger { display: inline-flex; } .nav-actions .btn-label-lg { display: none; } .nav { gap: 16px; } .brand { margin-right: auto; } }
+
+/* =========================================================
+   Hero — Dark immersive (swan as translucent backdrop)
+   ========================================================= */
+.hero {
+  position: relative; overflow: hidden;
+  background: #0b1221;
+}
+/* Swan backdrop — full-bleed cover, no dark edges */
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: 0;
+  background: url('swan-hero.jpg') no-repeat center / cover;
+  opacity: .16; filter: saturate(.9);
+  pointer-events: none;
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px;
+  align-items: center; padding: 96px 0 100px; position: relative; z-index: 1;
+}
+.hero h1 { font-size: clamp(42px, 6vw, 76px); color: #f2f3f5; font-weight: 500; line-height: 1.04; }
+.hero h1 em { font-style: italic; color: #d4a843; }
+.hero p.lead { margin: 28px 0 36px; font-size: 18px; color: #bfc3cc; }
+.hero-cta { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+/* Dark hero buttons */
+.hero-cta .btn-primary-gold {
+  background: #d4a843; color: #0b1221; border-color: #d4a843;
+}
+.hero-cta .btn-primary-gold:hover { background: #e5b954; border-color: #e5b954; transform: translateY(-1px); }
+.hero-cta .btn-outline-light {
+  background: transparent; color: #f2f3f5; border-color: rgba(255,255,255,.35);
+}
+.hero-cta .btn-outline-light:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.55); color: #fff; }
+.hero-meta { display: flex; gap: 40px; margin-top: 46px; flex-wrap: wrap; }
+.hero-meta .m { display: flex; flex-direction: column; }
+.hero-meta .m b { font-family: var(--serif); font-size: 32px; font-weight: 600; color: #f2f3f5; display: flex; align-items: center; line-height: 34px; height: 34px;
+  font-variant-numeric: lining-nums tabular-nums; font-feature-settings: "lnum" 1, "tnum" 1; }
+.hero-meta .m span { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8890a0; margin-top: 8px; }
+.hero-stage { position: relative; min-height: 520px; display: grid; place-items: center; overflow: hidden; }
+.hero-stage .studio { display: none; }
+.hero-product { position: relative; z-index: 2; display: grid; place-items: center; width: 100%; height: 100%; margin: 0; }
+.hero-product img { width: 100%; height: 100%; object-fit: contain; border-radius: 6px; transition: transform .6s var(--ease); opacity: 0; }
+.hero-crystal { position: relative; width: 300px; height: 380px; filter: drop-shadow(0 30px 34px rgba(31,42,90,0.20)); animation: floaty 7s ease-in-out infinite; }
+@keyframes floaty { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-12px) } }
+@media (prefers-reduced-motion: reduce) { .hero-crystal { animation: none; } }
+.hero-caption { display: none; }
+@media (max-width: 940px) { .hero-grid { grid-template-columns: 1fr; gap: 8px; padding: 56px 0 40px; } .hero-stage { min-height: 360px; order: -1; } .hero::before { background-position: center; opacity: .12; } }
+
+/* =========================================================
+   Trust strip
+   ========================================================= */
+.strip { border-bottom: 1px solid var(--line); }
+.strip-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 22px; padding: 22px 0; }
+.strip .s { display: flex; align-items: center; gap: 11px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-2); }
+.strip .s svg { width: 18px; height: 18px; color: var(--muted); flex: none; }
+@media (max-width: 760px) { .strip .s { font-size: 10.5px; gap: 8px; } .strip-inner { gap: 14px; } }
+
+/* =========================================================
+   Section head
+   ========================================================= */
+.sec-head { max-width: 760px; margin-bottom: 52px; }
+.sec-head.center { margin: 0 auto 56px; text-align: center; }
+.sec-head .eyebrow { display: inline-block; margin-bottom: 18px; }
+.sec-head p { color: var(--muted); font-size: 17px; margin: 18px 0 0; }
+
+/* =========================================================
+   Categories — editorial tiles
+   ========================================================= */
+.cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 22px; }
+.cat { position: relative; display: flex; flex-direction: column; }
+.cat-media { position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--r-card);
+  background: linear-gradient(180deg, var(--studio-1), var(--studio-2)); display: grid; place-items: center; border: 1px solid var(--line-2); }
+.cat-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
+.cat-media .art { width: 70%; height: 70%; transition: transform .5s var(--ease); }
+.cat:hover .cat-media img, .cat:hover .cat-media .art { transform: scale(1.04); }
+.cat-body { padding: 16px 2px 0; }
+.cat-body h3 { font-size: 19px; color: var(--ink); line-height: 1.15; }
+.cat-zh { display: inline-block; margin-top: 3px; font-size: 13px; color: var(--brand); font-weight: 600; letter-spacing: .02em; }
+.cat-body p { margin: 7px 0 0; font-size: 12.5px; color: var(--muted); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.cat .go { display: inline-flex; align-items: center; gap: 7px; margin-top: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink); }
+.cat .go svg { width: 14px; height: 14px; transition: transform .25s var(--ease); }
+.cat:hover .go svg { transform: translateX(4px); }
+@media (max-width: 940px) { .cat-grid { gap: 18px; } }
+@media (max-width: 520px) { .cat-grid { gap: 14px; } .cat-body h3 { font-size: 17px; } }
+
+/* =========================================================
+   Products
+   ========================================================= */
+.products { background: var(--bg-warm); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.filters { display: flex; gap: 8px; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 8px; margin-bottom: 36px;
+  scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+.filters::-webkit-scrollbar { height: 6px; }
+.filters::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+.filter { flex: 0 0 auto; scroll-snap-align: start; white-space: nowrap; border: 1px solid var(--line); background: #fff; color: var(--ink-2); padding: 10px 18px; border-radius: var(--r-pill);
+  font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; transition: all .2s var(--ease); }
+.filter:hover { border-color: var(--ink); color: var(--ink); }
+.filter.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+.prod-tools { margin-bottom: 8px; }
+.p-search { display: block; width: 100%; max-width: 440px; margin: 0 auto 18px; padding: 12px 18px; border: 1px solid var(--line); border-radius: var(--r-pill);
+  background: #fff; font: inherit; font-size: 14px; color: var(--ink); transition: border-color .2s var(--ease), box-shadow .2s var(--ease); }
+.p-search::placeholder { color: var(--faint); }
+.p-search:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(31,42,212,.12); }
+.empty-cat { grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--muted); font-size: 15px; }
+.prod-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+@media (max-width: 1200px) { .prod-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; } }
+@media (max-width: 940px) { .prod-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
+@media (max-width: 520px) { .prod-grid { grid-template-columns: 1fr; gap: 20px; } .filters { flex-wrap: wrap; overflow-x: visible; } }
+.card { background: transparent; display: flex; flex-direction: column; }
+.pmedia { position: relative; aspect-ratio: 3 / 4; overflow: hidden; cursor: pointer; border-radius: var(--r-card);
+  background: linear-gradient(180deg, var(--studio-1) 0%, var(--studio-2) 100%); display: grid; place-items: center; border: 1px solid var(--line-2); }
+.pmedia .art-wrap { width: 82%; height: 82%; display: grid; place-items: center; z-index: 1; transition: transform .55s var(--ease); }
+.pmedia .art { width: 100%; height: 100%; }
+.card:hover .pmedia .art-wrap { transform: scale(1.05); }
+.pmedia::after { content: ""; position: absolute; inset: 0; z-index: 2; background: linear-gradient(115deg, transparent 34%, rgba(255,255,255,0.5) 48%, transparent 62%);
+  transform: translateX(-35%); transition: transform .8s var(--ease); pointer-events: none; }
+.card:hover .pmedia::after { transform: translateX(35%); }
+.pmedia .realphoto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 3; }
+.pmedia .tag { position: absolute; top: 14px; left: 14px; z-index: 4; color: var(--muted);
+  font-size: 10px; font-weight: 700; letter-spacing: 0.14em; padding: 0; text-transform: uppercase; }
+.pbody { padding: 18px 2px 0; display: flex; flex-direction: column; flex: 1; }
+.pbody h3 { font-size: 18px; color: var(--ink); font-weight: 600; }
+.pbody .pdesc { font-size: 13px; color: var(--muted); margin: 6px 0 0; line-height: 1.5; }
+.pspecs { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 12px 0 16px; }
+.pspecs span { font-size: 11px; font-weight: 500; letter-spacing: 0.02em; color: var(--muted); position: relative; }
+.pspecs span + span::before { content: "·"; position: absolute; left: -9px; color: var(--faint); }
+.pactions { margin-top: auto; display: flex; gap: 12px; align-items: center; justify-content: space-between; padding-top: 4px; border-top: 1px solid var(--line-2); }
+.pactions .details-link { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); padding: 12px 0; background: none; border: 0; }
+.pactions .details-link svg { width: 13px; height: 13px; transition: transform .25s var(--ease); }
+.pactions .details-link:hover { color: var(--ink); } .pactions .details-link:hover svg { transform: translateX(3px); }
+.pactions .add-btn { padding: 10px 18px; }
+.add-btn.added { background: #2f7d4f; border-color: #2f7d4f; color: #fff; }
+.add-btn.added:hover { background: #276a43; }
+
+/* =========================================================
+   Custom design request
+   ========================================================= */
+.custom-grid { display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 56px; align-items: start; margin-top: 12px; }
+@media (max-width: 940px) { .custom-grid { grid-template-columns: 1fr; gap: 36px; } }
+.custom-panel { background: var(--ink); border-radius: 6px; padding: 44px; color: #fff; box-shadow: var(--sh-3); position: relative; overflow: hidden; }
+.custom-panel::before { content: ""; position: absolute; top: -70px; right: -70px; width: 220px; height: 220px; border-radius: 50%; background: rgba(255,255,255,0.05); }
+.custom-panel .eyebrow { color: rgba(255,255,255,0.55); }
+.custom-panel h3 { font-size: 28px; margin: 14px 0 16px; color: #fff; }
+.custom-panel p { color: rgba(255,255,255,0.72); font-size: 15px; }
+.custom-steps { display: grid; gap: 2px; margin-top: 30px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.14); }
+.custom-steps .st { display: flex; gap: 16px; align-items: flex-start; padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.10); }
+.custom-steps .st:first-child { border-top: 0; padding-top: 0; }
+.custom-steps .st .n { font-family: var(--serif); font-size: 15px; color: rgba(255,255,255,0.5); flex: none; width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.22); display: grid; place-items: center; }
+.custom-steps .st h4 { font-family: var(--sans); font-size: 14.5px; font-weight: 600; color: #fff; margin: 0 0 3px; }
+.custom-steps .st span { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+@media (max-width: 620px) { .custom-panel { padding: 32px; } }
+
+.custom-form { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 34px; box-shadow: var(--sh-1); }
+@media (max-width: 620px) { .custom-form { padding: 24px; } }
+.custom-form .field { margin-bottom: 16px; }
+.custom-form .field:last-of-type { margin-bottom: 0; }
+.custom-form .field label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+.custom-form .field label .req { color: var(--brand); }
+.custom-form .field input, .custom-form .field textarea, .custom-form .field select { border: 1px solid var(--line); border-radius: 4px; padding: 11px 13px; font-size: 14px; font-family: inherit; color: var(--ink); background: #fff; width: 100%; transition: border-color .2s, box-shadow .2s; }
+.custom-form .field textarea { resize: vertical; min-height: 92px; }
+.custom-form .field select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b6e78' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; background-size: 16px; padding-right: 36px; }
+.custom-form .field input:focus, .custom-form .field textarea:focus, .custom-form .field select:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(20,22,30,0.08); }
+.custom-form .field .err { font-size: 11px; color: var(--brand); display: none; margin-top: 5px; }
+.custom-form .field.invalid .err { display: block; }
+.custom-form .field.invalid input, .custom-form .field.invalid textarea, .custom-form .field.invalid select { border-color: var(--brand); }
+.custom-form .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 520px) { .custom-form .row-2 { grid-template-columns: 1fr; } }
+.custom-form .btn { width: 100%; margin-top: 8px; }
+.custom-form .hint { font-size: 11px; color: var(--faint); text-align: center; margin: 13px 0 0; line-height: 1.5; }
+
+/* upload dropzone */
+.upload { position: relative; }
+.upload-drop { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 8px; padding: 30px 20px; border: 1.5px dashed var(--line); border-radius: 6px; background: var(--bg-warm); cursor: pointer; transition: border-color .2s var(--ease), background .2s var(--ease); }
+.upload-drop:hover, .upload-drop.drag { border-color: var(--ink); background: #fff; }
+.upload-drop svg { width: 30px; height: 30px; color: var(--muted); }
+.upload-drop .ut { font-size: 13.5px; font-weight: 600; color: var(--ink-2); }
+.upload-drop .us { font-size: 11.5px; color: var(--faint); }
+.upload-drop .ub { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand); margin-top: 4px; }
+.upload input[type=file] { position: absolute; inset: 0; opacity: 0; width: 100%; height: 100%; cursor: pointer; }
+.upload-preview { display: none; gap: 14px; align-items: center; padding: 14px; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+.upload-preview.show { display: flex; }
+.upload-preview img { width: 84px; height: 84px; border-radius: 4px; object-fit: cover; flex: none; }
+.upload-preview .up-meta { flex: 1; min-width: 0; }
+.upload-preview .up-name { font-size: 13px; font-weight: 600; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.upload-preview .up-size { font-size: 11.5px; color: var(--faint); margin-top: 2px; }
+.upload-preview .up-rm { align-self: flex-start; color: var(--faint); background: none; border: 0; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 0; }
+.upload-preview .up-rm:hover { color: var(--ink); }
+
+/* =========================================================
+   Custom English date picker (replaces native <input type=date>)
+   ========================================================= */
+.date-picker { position: relative; }
+.date-picker .dp-input {
+  display: flex; align-items: center; gap: 10px;
+  border: 1px solid var(--line); border-radius: 4px;
+  padding: 11px 13px; font-size: 14px; font-family: inherit;
+  color: var(--ink); background: #fff; cursor: pointer;
+  transition: border-color .2s, box-shadow .2s;
+  width: 100%; box-sizing: border-box;
+}
+.date-picker .dp-input:hover { border-color: var(--faint); }
+.date-picker .dp-input:focus,
+.date-picker .dp-input.dp-open { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(20,22,30,0.08); }
+.date-picker .dp-input .dp-placeholder { color: var(--faint); flex: 1; }
+.date-picker .dp-input .dp-val { flex: 1; display: none; }
+.date-picker .dp-input svg { width: 17px; height: 17px; color: var(--muted); flex: none; }
+.date-picker .dp-pop {
+  display: none; position: absolute; top: calc(100% + 6px); left: 0; right: 0;
+  z-index: 50; background: #fff; border: 1px solid var(--line);
+  border-radius: 6px; box-shadow: var(--sh-2); padding: 18px;
+}
+.date-picker .dp-pop.open { display: block; animation: dpFadeIn .15s ease; }
+@keyframes dpFadeIn { from{opacity:0;transform:translateY(-4px)} to{opacity:1;transform:none} }
+.date-picker .dp-hd { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.date-picker .dp-hd button {
+  background: none; border: 0; width: 28px; height: 28px; border-radius: 4px;
+  display: grid; place-items: center; cursor: pointer; color: var(--ink-2);
+  transition: background-color .15s; -webkit-appearance: none;
+}
+.date-picker .dp-hd button:hover { background: var(--bg-warm); }
+.date-picker .dp-hd button svg { width: 16px; height: 16px; color: inherit; margin: 0; }
+.date-picker .dp-hd span { font-family: var(--serif); font-size: 15px; font-weight: 600; color: var(--ink); letter-spacing: 0.02em; }
+.date-picker .dp-wk { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; margin-bottom: 4px; }
+.date-picker .dp-wk div { text-align: center; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); line-height: 26px; }
+.date-picker .dp-d { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+.date-picker .dp-d button {
+  appearance: none; -webkit-appearance: none; background: none; border: 0;
+  width: 32px; height: 30px; border-radius: 4px; font-size: 13px; font-family: inherit;
+  color: var(--ink-2); cursor: pointer; display: grid; place-items: center;
+  transition: background-color .12s, color .12s; margin: 0 auto;
+}
+.date-picker .dp-d button:hover:not(.out):not(.sel) { background: var(--bg-warm); color: var(--ink); }
+.date-picker .dp-d button.out { color: var(--faint); opacity: 0.5; }
+.date-picker .dp-d button.today { font-weight: 700; box-shadow: inset 0 0 0 1px var(--line); }
+.date-picker .dp-d button.sel { background: var(--ink); color: #fff; font-weight: 600; }
+.date-picker .dp-ft { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line-2); }
+.date-picker .dp-ft button {
+  background: none; border: 0; font-size: 11.5px; font-weight: 600; cursor: pointer;
+  padding: 6px 12px; border-radius: 3px; transition: background .12s; -webkit-appearance: none;
+}
+.date-picker .dp-ft .dp-clear { color: var(--muted); }
+.date-picker .dp-ft .dp-clear:hover { background: var(--bg-warm); color: var(--ink-2); }
+.date-picker .dp-ft .dp-today { color: var(--brand); }
+.date-picker .dp-ft .dp-today:hover { background: rgba(31,42,212,0.06); }
+
+/* =========================================================
+   Capabilities
+   ========================================================= */
+.cap-grid { display: grid; grid-template-columns: 1fr 0.92fr; gap: 64px; align-items: center; }
+.cap-list { display: grid; gap: 2px; }
+.cap-item { display: flex; gap: 18px; padding: 22px 0; border-top: 1px solid var(--line); }
+.cap-item .idx { font-family: var(--serif); font-size: 15px; color: var(--faint); flex: none; width: 26px; padding-top: 2px; }
+.cap-item h3 { font-size: 19px; color: var(--ink); }
+.cap-item p { margin: 6px 0 0; font-size: 14px; color: var(--muted); }
+.cap-panel { background: var(--ink); border-radius: 6px; padding: 48px; color: #fff; box-shadow: var(--sh-3); position: relative; overflow: hidden; }
+.cap-panel::before { content: ""; position: absolute; top: -70px; right: -70px; width: 240px; height: 240px; border-radius: 50%; background: rgba(255,255,255,0.05); }
+.cap-panel .eyebrow { color: rgba(255,255,255,0.55); }
+.cap-panel h3 { font-size: 30px; margin: 14px 0 16px; color: #fff; }
+.cap-panel p { color: rgba(255,255,255,0.72); font-size: 15px; }
+.cap-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 30px 22px; margin-top: 34px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.14); }
+.cap-stats .cs b { font-family: var(--serif); font-size: 36px; font-weight: 600; letter-spacing: 0; display: flex; align-items: baseline; line-height: 1; height: 38px;
+  font-variant-numeric: lining-nums tabular-nums; font-feature-settings: "lnum" 1, "tnum" 1; }
+.cap-stats .cs span { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 10px; display: block; }
+@media (max-width: 900px) { .cap-grid { grid-template-columns: 1fr; gap: 40px; } .cap-panel { padding: 34px; } }
+
+/* =========================================================
+   Factory Gallery (Atelier)
+   ========================================================= */
+.factory-gallery { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 16px; }
+.fg-main { position: relative; border-radius: 8px; overflow: hidden; }
+.fg-main img { width: 100%; height: 100%; object-fit: cover; min-height: 420px; }
+.fg-main .fg-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 24px; background: linear-gradient(transparent, rgba(0,0,0,.55)); color: #fff; font-size: 14px; font-weight: 500; }
+.fg-side { display: grid; grid-template-rows: repeat(3, 1fr); gap: 16px; }
+.fg-item { position: relative; border-radius: 8px; overflow: hidden; }
+.fg-item img { width: 100%; height: 100%; object-fit: cover; min-height: 130px; }
+.fg-item .fg-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px 14px; background: linear-gradient(transparent, rgba(0,0,0,.5)); color: #fff; font-size: 12px; font-weight: 500; }
+@media (max-width: 900px) { .factory-gallery { grid-template-columns: 1fr; } .fg-main img { min-height: 280px; } .fg-side { grid-template-columns: repeat(3, 1fr); grid-template-rows: auto; } .fg-item img { min-height: 120px; } }
+@media (max-width: 560px) { .fg-side { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   About + Contact
+   ========================================================= */
+.about { background: var(--bg-warm); border-top: 1px solid var(--line); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+.about-copy h2 { font-size: clamp(28px, 3.8vw, 46px); }
+.about-copy p { color: var(--muted); font-size: 16px; margin: 20px 0 0; }
+.about-points { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 32px; }
+.about-points .ap { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; font-weight: 600; color: var(--ink-2); }
+.about-points .ap svg { width: 18px; height: 18px; color: var(--brand); flex: none; margin-top: 2px; }
+.contact-card { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 34px; box-shadow: var(--sh-1); }
+.contact-card h3 { font-size: 24px; }
+.contact-card .company-zh { color: var(--faint); font-size: 12px; letter-spacing: 0.04em; margin: 6px 0 22px; }
+.contact-row { display: flex; gap: 15px; padding: 15px 0; border-top: 1px solid var(--line-2); align-items: flex-start; }
+.contact-row:first-of-type { border-top: 0; }
+.contact-row .ic { width: 36px; height: 36px; border-radius: 50%; background: var(--bg-warm); display: grid; place-items: center; flex: none; }
+.contact-row .ic svg { width: 17px; height: 17px; color: var(--ink-2); }
+.contact-row .cr-l { font-size: 10.5px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; }
+.contact-row .cr-v { font-size: 14.5px; color: var(--ink); font-weight: 500; }
+.contact-row a.cr-v:hover { color: var(--brand); }
+.contact-card .btn { width: 100%; margin-top: 26px; }
+@media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 34px; } .about-points { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   Contact Section
+   ========================================================= */
+.contact-section { background: var(--bg-warm); border-top: 1px solid var(--line); }
+.contact-page-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; align-items: start; }
+.contact-info-card { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 36px; box-shadow: var(--sh-1); }
+.contact-info-card h3 { font-size: 22px; margin: 0 0 4px; }
+.contact-info-card .company-zh { color: var(--faint); font-size: 12px; letter-spacing: 0.04em; margin: 0 0 24px; }
+.contact-form-card { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 36px; box-shadow: var(--sh-1); }
+.contact-form-card h3 { font-size: 22px; margin: 0 0 6px; }
+.contact-form-card .form-hint { color: var(--muted); font-size: 14px; margin: 0 0 24px; }
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.cf-field { margin-bottom: 16px; }
+.cf-field label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 7px; }
+.cf-field label .req { color: var(--brand); }
+.cf-field input, .cf-field textarea, .cf-field select { border: 1px solid var(--line); border-radius: 4px; padding: 11px 13px; font-size: 14px; font-family: inherit; color: var(--ink); background: #fff; width: 100%; transition: border-color .2s, box-shadow .2s; }
+.cf-field textarea { resize: vertical; min-height: 100px; }
+.cf-field select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b6e78' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; background-size: 16px; padding-right: 36px; }
+.cf-field input:focus, .cf-field textarea:focus, .cf-field select:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(20,22,30,0.08); }
+@media (max-width: 860px) { .contact-page-grid { grid-template-columns: 1fr; gap: 32px; } .cf-row { grid-template-columns: 1fr; gap: 0; } }
+
+/* =========================================================
+   Testimonials
+   ========================================================= */
+.testimonials { background: var(--bg-warm); }
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.testi-card { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 32px 28px; box-shadow: var(--sh-1); transition: transform .3s var(--ease), box-shadow .3s var(--ease); }
+.testi-card:hover { transform: translateY(-4px); box-shadow: var(--sh-2); }
+.testi-stars { color: #d4a843; font-size: 18px; letter-spacing: 2px; margin-bottom: 16px; }
+.testi-text { font-size: 14.5px; line-height: 1.7; color: var(--ink-2); margin: 0 0 22px; font-style: italic; }
+.testi-author b { display: block; font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+.testi-author span { font-size: 12px; color: var(--faint); }
+@media (max-width: 1100px) { .testi-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .testi-grid { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   Footer
+   ========================================================= */
+.site-footer { background: var(--ink); color: rgba(255,255,255,0.66); padding: 68px 0 30px; }
+.foot-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; }
+.foot-brand .brand .bname b { color: #fff; }
+.foot-brand .brand .bname span { color: rgba(255,255,255,0.45); }
+.foot-brand p { margin: 20px 0 0; font-size: 14px; max-width: 38ch; }
+.foot-col h4 { color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin: 0 0 18px; }
+.foot-col a, .foot-col p { display: block; color: rgba(255,255,255,0.6); font-size: 14px; margin: 0 0 12px; }
+.foot-col a:hover { color: #fff; }
+.foot-bottom { border-top: 1px solid rgba(255,255,255,0.12); margin-top: 48px; padding-top: 24px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 12px; letter-spacing: 0.04em; color: rgba(255,255,255,0.45); }
+@media (max-width: 800px) { .foot-grid { grid-template-columns: 1fr 1fr; } .foot-brand { grid-column: 1 / -1; } }
+
+/* =========================================================
+   Inquiry drawer
+   ========================================================= */
+.overlay { position: fixed; inset: 0; background: rgba(20,22,30,0.42); backdrop-filter: blur(2px); z-index: 200; opacity: 0; visibility: hidden;
+  transition: opacity .3s var(--ease), visibility .3s; }
+.overlay.open { opacity: 1; visibility: visible; }
+.drawer { position: fixed; top: 0; right: 0; height: 100%; width: 468px; max-width: 92vw; z-index: 210; background: #fff;
+  box-shadow: -24px 0 70px -24px rgba(20,22,40,0.4); transform: translateX(100%); transition: transform .45s var(--ease); display: flex; flex-direction: column; }
+.drawer.open { transform: translateX(0); }
+.drawer-head { padding: 26px 28px; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; }
+.drawer-head h3 { font-size: 22px; }
+.drawer-head .sub { font-size: 12px; color: var(--faint); margin-top: 2px; }
+.icon-btn { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); background: #fff; display: grid; place-items: center; }
+.icon-btn:hover { background: var(--bg-warm); }
+.icon-btn svg { width: 19px; height: 19px; }
+.drawer-body { flex: 1; overflow-y: auto; padding: 22px 28px; }
+.inq-empty { text-align: center; padding: 64px 20px; color: var(--faint); }
+.inq-empty svg { width: 54px; height: 54px; color: var(--line); margin: 0 auto 18px; }
+.inq-empty b { display: block; font-family: var(--serif); color: var(--ink-2); font-size: 20px; margin-bottom: 8px; font-weight: 600; }
+.inq-item { display: flex; gap: 15px; padding: 16px 0; border-bottom: 1px solid var(--line-2); }
+.inq-item .thumb { position: relative; width: 66px; height: 66px; border-radius: 4px; flex: none; display: grid; place-items: center; overflow: hidden;
+  background: linear-gradient(180deg, var(--studio-1), var(--studio-2)); border: 1px solid var(--line-2); }
+.inq-item .thumb .art { width: 84%; height: 84%; }
+.inq-item .thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
+.inq-item .meta { flex: 1; min-width: 0; }
+.inq-item .meta h4 { font-family: var(--sans); font-size: 16px; margin: 0; font-weight: 600; font-variant-numeric: tabular-nums lining-nums; letter-spacing: 0.02em; }
+.inq-item .meta .mono { font-size: 11.5px; color: var(--faint); margin-top: 2px; letter-spacing: 0.03em; }
+.qty { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: var(--r-pill); margin-top: 10px; }
+.qty button { width: 28px; height: 28px; background: #fff; border: 0; border-radius: 50%; color: var(--ink); font-size: 16px; font-weight: 600; }
+.qty button:hover { background: var(--bg-warm); }
+.qty input { width: 42px; height: 28px; border: 0; text-align: center; font-size: 13px; font-weight: 700; line-height: 28px; color: var(--ink); background: transparent; font-variant-numeric: tabular-nums; -moz-appearance: textfield; }
+.qty input::-webkit-outer-spin-button, .qty input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.inq-item .rm { align-self: flex-start; color: var(--faint); background: none; border: 0; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+.inq-item .rm:hover { color: var(--ink); }
+.inq-form { display: grid; gap: 14px; margin-top: 18px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+.field label .req { color: var(--brand); }
+.field input, .field textarea, .field select { border: 1px solid var(--line); border-radius: 4px; padding: 11px 13px;
+  font-size: 14px; font-family: inherit; color: var(--ink); background: #fff; transition: border-color .2s, box-shadow .2s; }
+.field input::placeholder, .field textarea::placeholder { color: #b4b6bd; }
+.field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(20,22,30,0.08); }
+.field .err { font-size: 11px; color: var(--brand); display: none; }
+.field.invalid .err { display: block; }
+.field.invalid input, .field.invalid textarea, .field.invalid select { border-color: var(--brand); }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.drawer-foot { padding: 20px 28px 26px; border-top: 1px solid var(--line); background: #fff; }
+.drawer-foot .btn { width: 100%; }
+.drawer-foot .hint { font-size: 11px; color: var(--faint); text-align: center; margin: 13px 0 0; line-height: 1.5; }
+@media (max-width: 520px) { .two { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   Quick view modal
+   ========================================================= */
+.modal { position: fixed; inset: 0; z-index: 220; display: grid; place-items: center; padding: 24px; opacity: 0; visibility: hidden;
+  background: rgba(20,22,30,0.42); backdrop-filter: blur(2px); transition: opacity .3s var(--ease), visibility .3s; }
+.modal.open { opacity: 1; visibility: visible; }
+.modal-card { position: relative; background: #fff; border-radius: 8px; width: 1040px; max-width: 94vw; max-height: 92vh; overflow: hidden;
+  box-shadow: var(--sh-3); display: grid; grid-template-columns: 1fr 1fr; transform: translateY(16px) scale(.98); transition: transform .35s var(--ease); }
+.modal.open .modal-card { transform: none; }
+.modal-media { position: relative; background: linear-gradient(180deg, var(--studio-1), var(--studio-2)); display: grid; place-items: center; min-height: 460px; max-height: 84vh; aspect-ratio: 3 / 4; align-self: start; }
+.modal-media .art-wrap { width: 78%; height: 78%; display: grid; place-items: center; }
+.modal-media .art { width: 100%; height: 100%; }
+.modal-media .realphoto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 8px; }
+.modal-info { padding: 38px; overflow-y: auto; }
+.modal-info .tag { color: var(--muted); font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; }
+.modal-info h3 { font-size: 30px; margin: 10px 0 12px; }
+.modal-info .mdesc { color: var(--muted); font-size: 14.5px; }
+.spec-table { margin: 24px 0; border-top: 1px solid var(--line); }
+.spec-table .sr { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line-2); font-size: 13.5px; }
+.spec-table .sr .k { color: var(--faint); font-weight: 500; }
+.spec-table .sr .v { color: var(--ink); font-weight: 600; text-align: right; }
+.modal-close { position: absolute; top: 16px; right: 16px; z-index: 4; background: rgba(255,255,255,0.92); }
+@media (max-width: 680px) {
+  .modal-card { grid-template-columns: 1fr; }
+  .modal-media { min-height: 240px; max-height: 45vh; aspect-ratio: 1 / 1; }
+  .modal-media .realphoto { object-fit: contain; }
+  .modal-info { padding: 26px; max-height: 45vh; overflow-y: auto; }
+  .modal-info h3 { font-size: 22px; }
+}
+
+/* =========================================================
+   Toast, mobile sheet, reveal
+   ========================================================= */
+.toast { position: fixed; bottom: 28px; left: 50%; transform: translate(-50%, 20px); z-index: 300; background: var(--ink); color: #fff;
+  padding: 14px 22px; border-radius: var(--r-pill); font-size: 13px; font-weight: 600; letter-spacing: 0.02em; box-shadow: var(--sh-3); display: flex; align-items: center; gap: 10px;
+  opacity: 0; visibility: hidden; transition: all .3s var(--ease); }
+.toast.show { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.toast svg { width: 17px; height: 17px; color: #7fe0a3; }
+.msheet { position: fixed; inset: 0; z-index: 150; background: #fff; transform: translateY(-100%); transition: transform .4s var(--ease); padding: 96px 28px 40px; }
+.msheet.open { transform: translateY(0); }
+.msheet a { display: block; font-family: var(--serif); font-size: 26px; font-weight: 600; padding: 18px 0; border-bottom: 1px solid var(--line-2); color: var(--ink); }
+.msheet .close { position: absolute; top: 24px; right: 24px; }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+.no-js .reveal { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+  </style>
+</head>
+<body class="no-js">
+
+  <!-- ===== Shared crystal gradient sprite (referenced by every product render) ===== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="cGlass" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#eaf1fb"/><stop offset="1" stop-color="#c4d5ef"/>
+      </linearGradient>
+      <linearGradient id="cGlassD" x1="1" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#dbe6f7"/><stop offset="1" stop-color="#9fb6dd"/>
+      </linearGradient>
+      <linearGradient id="cGlassL" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#eef4fd"/>
+      </linearGradient>
+      <linearGradient id="cBlue" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#cfe0ff"/><stop offset="1" stop-color="#6f93e0"/>
+      </linearGradient>
+      <linearGradient id="cMetal" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#f4e6bf"/><stop offset=".5" stop-color="#d8b866"/><stop offset="1" stop-color="#b8933f"/>
+      </linearGradient>
+      <linearGradient id="cBase" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#eaedf3"/><stop offset="1" stop-color="#c6cedb"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <!-- ================= Header ================= -->
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Yuzhou Crystal home">
+        <svg class="logo" viewBox="0 0 48 48" role="img" aria-label="Yuzhou Crystal logo">
+  <rect width="48" height="48" rx="11" fill="#1f2ad4"></rect>
+  <circle cx="15" cy="13" r="5.5" fill="#ffffff"></circle>
+  <path d="M33 10 L14 38" fill="none" stroke="#f26a1b" stroke-width="5" stroke-linecap="round"></path>
+  <path d="M12 27 H30 L12 39 H36" fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"></path>
+        </svg>
+        <span class="bname"><b>YUZHOU CRYSTAL</b><span>Pujiang · China</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#categories">Collections</a>
+        <a href="#products">Catalogue</a>
+        <a href="#custom">Custom</a>
+        <a href="#capabilities">Atelier</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-dark btn-sm admin-link" href="/admin" aria-label="Open admin backend" title="管理后台 / Admin">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"></path></svg>
+          <span class="btn-label-lg">Admin</span>
+        </a>
+        <button class="btn btn-dark btn-sm inquiry-btn" aria-label="Open inquiry list">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1 13H5L6 7Z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg>
+          <span class="btn-label-lg">Inquiry</span>
+          <span class="count">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= Hero ================= -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1>Crystal gifts,<br>cut to <em>win the order</em>.</h1>
+        <p class="lead">From crystal awards to home décor — made in our own Pujiang workshop for gift importers worldwide. Low MOQ, custom engraving, export-ready packaging.</p>
+        <div class="hero-cta">
+          <a class="btn btn-outline-light" href="#products">Explore the catalogue
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+          <button class="btn btn-primary-gold inquiry-btn">Request a quote</button>
+        </div>
+        <div class="hero-meta">
+          <div class="m"><b>500+</b><span>Models</span></div>
+          <div class="m"><b>100</b><span>Low MOQ / pc</span></div>
+          <div class="m"><b>OEM</b><span>&amp; ODM</span></div>
+          <div class="m"><b>24h</b><span>Quote reply</span></div>
+        </div>
+      </div>
+      <div class="hero-stage" aria-hidden="true">
+        <div class="studio"></div>
+        <figure class="hero-product">
+          <img src="swan-hero.jpg" alt="Crystal swan product" loading="eager" decoding="async" width="1000" height="568">
+        </figure>
+        <span class="hero-caption">Crystal swan — OEM sample</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Trust strip ================= -->
+  <section class="strip">
+    <div class="wrap strip-inner">
+      <div class="s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7z"></path><path d="M9 12l2 2 4-4"></path></svg> OEM &amp; ODM production</div>
+      <div class="s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="2"></rect><path d="M8 12h8M8 9h5"></path></svg> Custom logo engraving</div>
+      <div class="s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"></path></svg> Worldwide export</div>
+      <div class="s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l8-5 8 5v13"></path><path d="M9 21v-6h6v6"></path></svg> Canton Fair exhibitor</div>
+    </div>
+  </section>
+
+  <!-- ================= Categories ================= -->
+  <section class="section" id="categories">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow">Collections</span>
+        <h2 class="h-sec">8 product ranges, one reliable maker.</h2>
+        <p>From corporate awards to home decor — crystal products designed, produced and finished in our own facility.</p>
+      </div>
+      <div class="cat-grid" id="cat-grid"></div>
+    </div>
+  </section>
+
+  <!-- ================= Products ================= -->
+  <section class="section products" id="products">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow">Catalogue</span>
+        <h2 class="h-sec">Browse our most reordered crystal pieces.</h2>
+        <p>Studio renders below. Select the models you like, then send a single inquiry for a complete quotation.</p>
+      </div>
+      <div class="prod-tools">
+        <input type="search" id="p-search" class="p-search" placeholder="Search products, materials, MOQ…" aria-label="Search products">
+        <div class="filters" id="filters"></div>
+      </div>
+      <div class="prod-grid" id="prod-grid"></div>
+    </div>
+  </section>
+
+  <!-- ================= Custom design request ================= -->
+  <section class="section custom" id="custom">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow">Custom atelier</span>
+        <h2 class="h-sec">Commission a piece we don't have yet.</h2>
+        <p>Send a reference image and your brief. Our design team develops the concept and quotes it back — usually within 24 hours.</p>
+      </div>
+      <div class="custom-grid">
+        <div class="custom-panel reveal">
+          <span class="eyebrow">How it works</span>
+          <h3>Send a reference. We send back a design.</h3>
+          <p>Upload a photo, sketch or screenshot of the piece you have in mind. Tell us the size, material and quantity — our designers turn it into a production-ready concept with a price.</p>
+          <div class="custom-steps">
+            <div class="st"><span class="n">01</span><div><h4>Upload your reference</h4><span>A photo, sketch, screenshot or even a link to an example.</span></div></div>
+            <div class="st"><span class="n">02</span><div><h4>Describe the brief</h4><span>Size, material, quantity, engraving and your deadline.</span></div></div>
+            <div class="st"><span class="n">03</span><div><h4>We design &amp; quote</h4><span>A concept render plus a tailored quotation, within 24 hours.</span></div></div>
+          </div>
+        </div>
+        <form class="custom-form reveal" id="custom-form" novalidate>
+          <div class="field">
+            <label>Reference image <span class="req">*</span></label>
+            <div class="upload">
+              <div class="upload-drop" id="custom-drop">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M5 16v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2"/></svg>
+                <span class="ut">Drop a reference image here</span>
+                <span class="us">or click to browse — JPG or PNG, up to 8 MB</span>
+                <span class="ub">Upload reference</span>
+                <input type="file" id="custom-file" name="image" accept="image/*">
+              </div>
+              <div class="upload-preview" id="custom-preview">
+                <img id="custom-prev-img" alt="Reference preview">
+                <div class="up-meta"><div class="up-name" id="custom-prev-name"></div><div class="up-size" id="custom-prev-size"></div></div>
+                <button type="button" class="up-rm" id="custom-prev-rm">Remove</button>
+              </div>
+            </div>
+            <small class="err">Please add a reference image.</small>
+          </div>
+          <div class="row-2">
+            <div class="field"><label>Product type</label>
+              <select name="ptype"><option value="">No preference</option><option>Crystal Trophies &amp; Awards</option><option>Home Decor &amp; Figurines</option><option>Office &amp; Desk Gifts</option><option>Crystal Photo Frames</option><option>Candle Holders</option><option>Tableware &amp; Barware</option><option>Perfume &amp; Fashion</option><option>Crystal Vases</option><option>Other</option></select>
+            </div>
+            <div class="field"><label>Preferred size</label><input name="size" placeholder="e.g. H 18 cm / 5×7 in"></div>
+          </div>
+          <div class="row-2">
+            <div class="field"><label>Material</label>
+              <select name="material"><option value="">No preference</option><option>K9 optical crystal</option><option>Lead-free crystal glass</option><option>Solid crystal</option><option>Metal + crystal</option></select>
+            </div>
+            <div class="field"><label>Target quantity / MOQ</label><input name="qty" placeholder="e.g. 200 pcs"></div>
+          </div>
+          <div class="field"><label>Customization (engraving / logo)</label><input name="customization" placeholder="e.g. 3D logo inside, gold name plate"></div>
+          <div class="field"><label>Required by</label>
+            <div class="date-picker" id="dp-deadline">
+              <div class="dp-input" tabindex="0">
+                <span class="dp-placeholder">Select a date</span><span class="dp-val"></span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              </div>
+              <input type="hidden" name="deadline">
+              <div class="dp-pop"><div class="dp-hd">
+                <button type="button" aria-label="Previous month"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+                <span></span>
+                <button type="button" aria-label="Next month"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+                </div><div class="dp-wk"><div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div><div>S</div></div>
+                <div class="dp-d"></div>
+                <div class="dp-ft"><button type="button" class="dp-clear">Clear</button><button type="button" class="dp-today">Today</button></div>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label>Detailed requirements <span class="req">*</span></label>
+            <textarea name="brief" placeholder="Describe the shape, use, colours, packaging and anything else the design team should know."></textarea>
+            <small class="err">Please describe what you need.</small>
+          </div>
+          <div class="row-2">
+            <div class="field"><label>Full name <span class="req">*</span></label><input name="name" placeholder="Jane Rossi"><small class="err">Please enter your name.</small></div>
+            <div class="field"><label>Company <span class="req">*</span></label><input name="company" placeholder="Rossi Gifts srl"><small class="err">Please enter your company.</small></div>
+          </div>
+          <div class="row-2">
+            <div class="field"><label>Email <span class="req">*</span></label><input name="email" type="email" placeholder="jane@company.com"><small class="err">Please enter a valid email.</small></div>
+            <div class="field"><label>Country</label><input name="country" placeholder="Italy"></div>
+          </div>
+          <button type="submit" class="btn btn-primary" id="custom-submit">Send brief to design team</button>
+          <p class="hint">Submitting opens your email app addressed to our design team. Please attach the reference image before sending.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Atelier / Factory ================= -->
+  <section class="section atelier" id="capabilities">
+    <div class="wrap">
+      <div class="sec-head center reveal" style="margin-bottom:56px">
+        <span class="eyebrow">The Atelier</span>
+        <h2 class="h-sec">Where crystal takes shape.</h2>
+        <p class="lead">From raw optical glass to finished trophy — every step happens under our roof in Pujiang, China's crystal capital.</p>
+      </div>
+
+      <!-- Factory Gallery -->
+      <div class="factory-gallery reveal">
+        <div class="fg-main">
+          <img src="images/factory/factory-cut.jpg" alt="Crystal cutting workshop" loading="lazy">
+          <div class="fg-caption">Precision CNC cutting — where every angle is calculated to catch the light.</div>
+        </div>
+        <div class="fg-side">
+          <div class="fg-item">
+            <img src="images/factory/factory-polish.jpg" alt="Polishing workshop" loading="lazy">
+            <div class="fg-caption">Hand-polishing to optical clarity</div>
+          </div>
+          <div class="fg-item">
+            <img src="images/factory/factory-laser.jpg" alt="Laser engraving" loading="lazy">
+            <div class="fg-caption">3D sub-surface laser engraving</div>
+          </div>
+          <div class="fg-item">
+            <img src="images/factory/factory-qa.jpg" alt="Quality inspection" loading="lazy">
+            <div class="fg-caption">Piece-by-piece quality control</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Capabilities Grid -->
+      <div class="cap-grid" style="margin-top:80px">
+        <div class="reveal">
+          <div class="sec-head center" style="margin-bottom:20px">
+            <span class="eyebrow">Capabilities</span>
+            <h2 class="h-sec">A factory built for gift importers.</h2>
+          </div>
+          <div class="cap-list">
+            <div class="cap-item"><span class="idx">01</span><div><h3>In-house crystal workshop</h3><p>Cutting, grinding, polishing and assembly under one roof. We control quality and lead time — not a middleman.</p></div></div>
+            <div class="cap-item"><span class="idx">02</span><div><h3>Laser &amp; 3D sub-surface engraving</h3><p>Your logo, artwork or a customer name — engraved on the surface or floating inside the crystal.</p></div></div>
+            <div class="cap-item"><span class="idx">03</span><div><h3>Custom packaging &amp; gift boxes</h3><p>Retail-ready boxes, inserts and printed sleeves designed around your brand and your market.</p></div></div>
+            <div class="cap-item"><span class="idx">04</span><div><h3>Export QA &amp; documentation</h3><p>Piece-by-piece inspection, safe export cartons and the paperwork your customs clearance needs.</p></div></div>
+          </div>
+        </div>
+        <div class="cap-panel reveal">
+          <span class="eyebrow">At a glance</span>
+          <h3>From sample to shipment, one team.</h3>
+          <p>Send a drawing or a reference photo. We quote fast, sample quickly, and keep your re-orders consistent.</p>
+          <div class="cap-stats">
+            <div class="cs"><b>500+</b><span>Product models</span></div>
+            <div class="cs"><b>100 pcs</b><span>Low MOQ / model</span></div>
+            <div class="cs"><b>15–30d</b><span>Typical lead time</span></div>
+            <div class="cs"><b>24h</b><span>Quote turnaround</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= About ================= -->
+  <section class="section about" id="about">
+    <div class="wrap about-grid">
+      <div class="about-copy reveal">
+        <span class="eyebrow">About us</span>
+        <h2>Made in Pujiang,<br>China's crystal town.</h2>
+        <p>Yuzhou Crystal Co., Ltd. is a crystal and glass craft manufacturer based in Pujiang, Zhejiang — a region known across China for optical-crystal craftsmanship. We supply gift importers, promotional-product companies and event organisers with crystal gifts, awards and home décor across more than 20 collections.</p>
+        <p>Our team has grown alongside the Canton Fair. We know what overseas buyers need: clear quotations, honest lead times, dependable packaging, and pieces that arrive exactly as sampled.</p>
+        <div class="about-points">
+          <div class="ap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg> Factory-direct pricing</div>
+          <div class="ap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg> Samples before bulk</div>
+          <div class="ap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg> Consistent re-orders</div>
+          <div class="ap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg> Responsive English support</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Testimonials ================= -->
+  <section class="section testimonials" id="testimonials">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow">What buyers say</span>
+        <h2 class="h-sec">Trusted by importers worldwide.</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"We ordered 300 crystal trophies for our annual distributor awards. The quality was outstanding — every piece had the same clarity and weight. Helen's team even helped us redesign the base to fit our budget without looking cheap."</p>
+          <div class="testi-author">
+            <b>Mark Thompson</b>
+            <span>United Kingdom · Promotional Products Distributor</span>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"I've been sourcing crystal candle holders from Yuzhou for three years now. Their re-order consistency is remarkable — colour, weight and finish are identical batch after batch. My retail clients in Hamburg never complain."</p>
+          <div class="testi-author">
+            <b>Sabine Mueller</b>
+            <span>Germany · Home Decor Importer</span>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"The 3D laser engraving inside crystal blocks was a game-changer for our corporate gift line. Our client in Dubai loved the floating logo effect. Turnaround from sample approval to FOB delivery was exactly 18 days."</p>
+          <div class="testi-author">
+            <b>Jean-Pierre Dubois</b>
+            <span>France · Corporate Gifting Agency</span>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"We needed 5,000 custom photo frames with engraved plaques for a hotel chain in Sydney. Yuzhou handled the packaging design, printed inserts and even suggested a foam insert that cut our shipping damage to zero."</p>
+          <div class="testi-author">
+            <b>David Chen</b>
+            <span>Australia · Hospitality Supplies</span>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"As a small business, I appreciate that they accept 100-piece MOQs. Their English communication is excellent — no misunderstandings on specs, and they always send pre-production photos before bulk manufacturing starts."</p>
+          <div class="testi-author">
+            <b>Anna Eriksson</b>
+            <span>Sweden · Online Gift Retailer</span>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"We switched to Yuzhou after two disappointing suppliers. The difference was immediate — proper export cartons, correct HS codes on the invoice, and crystal pieces that arrived without a single scratch. Professional from start to finish."</p>
+          <div class="testi-author">
+            <b>Roberto Silva</b>
+            <span>Brazil · Event Planning &amp; Awards</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Contact ================= -->
+  <section class="section contact-section" id="contact">
+    <div class="wrap">
+      <div class="sec-head center reveal" style="margin-bottom:56px">
+        <span class="eyebrow">Contact us</span>
+        <h2 class="h-sec">Talk to our export team.</h2>
+        <p class="lead">Whether you need a quotation, a sample, or just want to understand our process — we reply within 24 hours.</p>
+      </div>
+      <div class="contact-page-grid">
+        <div class="contact-info reveal">
+          <div class="contact-info-card">
+            <h3>Yuzhou Crystal Co., Ltd.</h3>
+            <p class="company-zh">义乌市宇洲水晶工艺品有限公司</p>
+            <div class="contact-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span><div><div class="cr-l">Address</div><div class="cr-v">No. 183-35 Xishan North Road, Pujiang County, Zhejiang, China</div></div></div>
+            <div class="contact-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg></span><div><div class="cr-l">Phone</div><a class="cr-v" href="tel:+8657988086027">+86-579-88086027</a></div></div>
+            <div class="contact-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="5"></rect><path d="M6 14H4a2 2 0 0 1-2-2V9a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v3a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="7"></rect></svg></span><div><div class="cr-l">Fax</div><div class="cr-v">+86-579-84109867</div></div></div>
+            <div class="contact-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M11 18h2"></path></svg></span><div><div class="cr-l">Mobile / WhatsApp</div><a class="cr-v" href="tel:+8613758910356">+86 137 5891 0356</a></div></div>
+            <div class="contact-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></span><div><div class="cr-l">Email</div><a class="cr-v" href="mailto:helen@crystalwto.com">helen@crystalwto.com</a></div></div>
+            <div class="contact-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2c2.5 2.7 2.5 15.3 0 18M12 2c-2.5 2.7-2.5 15.3 0 18"></path></svg></span><div><div class="cr-l">Business Hours</div><div class="cr-v">Mon–Sat · 8:30 – 18:00 (GMT+8)</div></div></div>
+          </div>
+        </div>
+        <div class="contact-form-wrap reveal">
+          <div class="contact-form-card">
+            <h3>Send us a message</h3>
+            <p class="form-hint">Fill in the form below and we will get back to you within one business day.</p>
+            <form id="contact-form" onsubmit="event.preventDefault(); handleContactSubmit();">
+              <div class="cf-row">
+                <div class="cf-field"><label>Name <span class="req">*</span></label><input type="text" name="name" placeholder="Your name" required></div>
+                <div class="cf-field"><label>Company</label><input type="text" name="company" placeholder="Your company"></div>
+              </div>
+              <div class="cf-row">
+                <div class="cf-field"><label>Email <span class="req">*</span></label><input type="email" name="email" placeholder="you@company.com" required></div>
+                <div class="cf-field"><label>Phone / WhatsApp</label><input type="tel" name="phone" placeholder="+1 234 567 8900"></div>
+              </div>
+              <div class="cf-field"><label>Subject</label>
+                <select name="subject">
+                  <option>Request a quotation</option>
+                  <option>Request samples</option>
+                  <option>Custom design inquiry</option>
+                  <option>General question</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="cf-field"><label>Message <span class="req">*</span></label><textarea name="message" rows="5" placeholder="Tell us what you need — product type, quantity, deadline, destination country..." required></textarea></div>
+              <button type="submit" class="btn btn-primary" style="width:100%">Send message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Footer ================= -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a class="brand" href="#top">
+            <svg class="logo" viewBox="0 0 48 48" aria-hidden="true">
+              <rect width="48" height="48" rx="11" fill="#1f2ad4"></rect>
+              <circle cx="15" cy="13" r="5.5" fill="#ffffff"></circle>
+              <path d="M33 10 L14 38" fill="none" stroke="#f26a1b" stroke-width="5" stroke-linecap="round"></path>
+              <path d="M12 27 H30 L12 39 H36" fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+            <span class="bname"><b>YUZHOU CRYSTAL</b><span>Crystal Manufacturer</span></span>
+          </a>
+          <p>Crystal &amp; glass craft manufacturer in Pujiang, China. 8 product ranges for importers worldwide.</p>
+        </div>
+        <div class="foot-col">
+          <h4>Collections</h4>
+          <a href="#products">Crystal trophies &amp; awards</a>
+          <a href="#products">Home decor &amp; figurines</a>
+          <a href="#products">Office &amp; desk gifts</a>
+          <a href="#products">Crystal photo frames</a>
+          <a href="#products">Candle holders</a>
+          <a href="#products">Tableware &amp; barware</a>
+          <a href="#products">Perfume &amp; fashion</a>
+          <a href="#products">Crystal vases</a>
+        </div>
+        <div class="foot-col">
+          <h4>Get in touch</h4>
+          <a href="#custom">Request a custom design</a>
+          <a href="tel:+8657988086027">+86-579-88086027</a>
+          <a href="tel:+8613758910356">+86 137 5891 0356</a>
+          <a href="mailto:helen@crystalwto.com">helen@crystalwto.com</a>
+          <p>Pujiang County, Zhejiang, China</p>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© <span id="year">2026</span> Yuzhou Crystal Co., Ltd. All rights reserved.</span>
+        <span>8 product ranges · one reliable maker</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= Mobile nav sheet ================= -->
+  <div class="msheet" id="msheet">
+    <button class="icon-btn close" id="msheet-close" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+    <a href="#categories">Collections</a>
+    <a href="#products">Catalogue</a>
+    <a href="#custom">Custom</a>
+    <a href="#capabilities">Atelier</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- ================= Inquiry drawer ================= -->
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="drawer" aria-label="Inquiry list">
+    <div class="drawer-head">
+      <div><h3>Your inquiry</h3><div class="sub">Add products, then send us one request for a quotation</div></div>
+      <button class="icon-btn" id="drawer-close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+    </div>
+    <div class="drawer-body" id="drawer-body"></div>
+    <div class="drawer-foot" id="drawer-foot">
+      <button class="btn btn-primary" id="submit-inq">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"></path></svg>
+        Send inquiry
+      </button>
+      <p class="hint">Submitting opens your email app with the list and your details pre-filled, addressed to our sales team.</p>
+    </div>
+  </aside>
+
+  <!-- ================= Quick view modal ================= -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-card">
+      <button class="icon-btn modal-close" id="modal-close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+      <div id="modal-body" style="display:contents"></div>
+    </div>
+  </div>
+
+  <!-- ================= Toast ================= -->
+  <div class="toast" id="toast">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+    <span></span>
+  </div>
+
+  <script>
+/* =========================================================
+   Data — crystal product renderings (ART) + catalogue.
+   ART[id] = inner SVG of a studio product render (viewBox
+   0 0 320 320), wrapped in <svg class="art"> by artSvg().
+   Drop images/products/<id>.jpg to override with a photo.
+   ========================================================= */
+const ART = {
+  'tr-faceted-peak': `
+    <ellipse cx="160" cy="252" rx="74" ry="13" fill="#1c2740" opacity=".13"/>
+    <rect x="120" y="232" width="80" height="19" rx="4" fill="url(#cBase)"/>
+    <rect x="120" y="231" width="80" height="5" rx="2.5" fill="#fff" opacity=".55"/>
+    <polygon points="160,44 134,232 160,232" fill="url(#cGlass)"/>
+    <polygon points="160,44 186,232 160,232" fill="url(#cGlassD)"/>
+    <polygon points="160,44 151,232 160,232" fill="#ffffff" opacity=".5"/>
+    <path d="M160 44 146 232 M160 44 174 232" stroke="#fff" stroke-opacity=".33" stroke-width="1.3" fill="none"/>
+    <polygon points="149,96 155,98 151,158 145,152" fill="#fff" opacity=".5"/>`,
+  'tr-star-column': `
+    <ellipse cx="160" cy="252" rx="66" ry="12" fill="#1c2740" opacity=".13"/>
+    <rect x="128" y="234" width="64" height="16" rx="3" fill="url(#cBase)"/>
+    <rect x="128" y="233" width="64" height="4" rx="2" fill="#fff" opacity=".5"/>
+    <polygon points="146,92 140,234 180,234 174,92" fill="url(#cGlass)"/>
+    <polygon points="160,92 160,234 180,234 174,92" fill="url(#cGlassD)"/>
+    <polygon points="146,92 140,234 149,234 154,92" fill="#fff" opacity=".45"/>
+    <rect x="156" y="92" width="3" height="142" fill="#fff" opacity=".3"/>
+    <path d="M160 40 L166 55 L182 56 L170 67 L174 83 L160 74 L146 83 L150 67 L138 56 L154 55 Z" fill="url(#cMetal)" stroke="#b08a34" stroke-width="1" stroke-linejoin="round"/>`,
+  'tr-blue-globe': `
+    <ellipse cx="160" cy="254" rx="70" ry="13" fill="#1c2740" opacity=".13"/>
+    <polygon points="130,238 190,238 180,208 140,208" fill="url(#cBlue)"/>
+    <polygon points="140,208 180,208 176,198 144,198" fill="#e3ecff"/>
+    <polygon points="130,238 190,238 186,230 134,230" fill="#fff" opacity=".25"/>
+    <circle cx="160" cy="150" r="56" fill="url(#cGlass)"/>
+    <circle cx="160" cy="150" r="56" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="1.5"/>
+    <ellipse cx="141" cy="131" rx="17" ry="23" fill="#fff" opacity=".55"/>
+    <circle cx="181" cy="175" r="6" fill="#fff" opacity=".4"/>`,
+  'cd-prism-taper': `
+    <ellipse cx="160" cy="252" rx="58" ry="11" fill="#1c2740" opacity=".13"/>
+    <polygon points="130,198 190,198 181,244 139,244" fill="url(#cGlass)"/>
+    <polygon points="160,198 190,198 181,244 160,244" fill="url(#cGlassD)"/>
+    <polygon points="130,198 190,198 186,210 134,210" fill="#fff" opacity=".4"/>
+    <ellipse cx="160" cy="198" rx="30" ry="7.5" fill="url(#cGlassL)"/>
+    <ellipse cx="160" cy="198" rx="18" ry="4" fill="#c6d5ef"/>
+    <rect x="153" y="122" width="14" height="78" rx="2" fill="#fbf6ea"/>
+    <rect x="153" y="122" width="5" height="78" fill="#fff" opacity=".6"/>
+    <rect x="153" y="122" width="14" height="6" rx="2" fill="#eee0c4"/>
+    <rect x="159" y="112" width="2" height="12" fill="#6b5836"/>
+    <path d="M160 82 q12 16 0 32 q-12 -16 0 -32z" fill="#ffb038"/>
+    <path d="M160 92 q6 9 0 20 q-6 -11 0 -20z" fill="#fff2c0"/>`,
+  'cd-cube-set': `
+    <ellipse cx="176" cy="250" rx="92" ry="13" fill="#1c2740" opacity=".13"/>
+    <polygon points="98,202 134,202 134,238 98,238" fill="url(#cGlass)"/>
+    <polygon points="98,202 110,190 146,190 134,202" fill="url(#cGlassL)"/>
+    <polygon points="134,202 146,190 146,226 134,238" fill="url(#cGlassD)"/>
+    <path d="M122 179 q4 6 0 13 q-4 -7 0 -13z" fill="#ffb038"/>
+    <polygon points="140,192 186,192 186,238 140,238" fill="url(#cGlass)"/>
+    <polygon points="140,192 155,177 201,177 186,192" fill="url(#cGlassL)"/>
+    <polygon points="186,192 201,177 201,223 186,238" fill="url(#cGlassD)"/>
+    <path d="M170 165 q5 7 0 15 q-5 -8 0 -15z" fill="#ffb038"/>
+    <polygon points="196,184 250,184 250,238 196,238" fill="url(#cGlass)"/>
+    <polygon points="196,184 212,168 266,168 250,184" fill="url(#cGlassL)"/>
+    <polygon points="250,184 266,168 266,222 250,238" fill="url(#cGlassD)"/>
+    <path d="M228 154 q6 8 0 17 q-6 -9 0 -17z" fill="#ffb038"/>`,
+  'cd-twin-arm': `
+    <ellipse cx="160" cy="254" rx="70" ry="12" fill="#1c2740" opacity=".13"/>
+    <ellipse cx="160" cy="238" rx="36" ry="10" fill="url(#cGlass)"/>
+    <ellipse cx="160" cy="235" rx="36" ry="9" fill="url(#cGlassL)"/>
+    <ellipse cx="160" cy="234" rx="24" ry="6" fill="#dbe6f7"/>
+    <rect x="157" y="150" width="6" height="86" rx="3" fill="url(#cMetal)"/>
+    <path d="M160 170 C132 160 118 150 114 122" fill="none" stroke="url(#cMetal)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M160 170 C188 160 202 150 206 122" fill="none" stroke="url(#cMetal)" stroke-width="6" stroke-linecap="round"/>
+    <ellipse cx="114" cy="120" rx="10" ry="4" fill="url(#cMetal)"/>
+    <ellipse cx="206" cy="120" rx="10" ry="4" fill="url(#cMetal)"/>
+    <ellipse cx="160" cy="146" rx="10" ry="4" fill="url(#cMetal)"/>
+    <rect x="109" y="104" width="10" height="18" rx="1" fill="#fbf6ea"/>
+    <rect x="201" y="104" width="10" height="18" rx="1" fill="#fbf6ea"/>
+    <rect x="155" y="126" width="10" height="22" rx="1" fill="#fbf6ea"/>
+    <path d="M114 88 q7 10 0 18 q-7 -9 0 -18z" fill="#ffb038"/>
+    <path d="M206 88 q7 10 0 18 q-7 -9 0 -18z" fill="#ffb038"/>
+    <path d="M160 108 q8 11 0 20 q-8 -10 0 -20z" fill="#ffb038"/>
+    <path d="M160 116 q4 6 0 13 q-4 -7 0 -13z" fill="#fff2c0"/>`,
+  'fr-bevel-57': `
+    <ellipse cx="160" cy="252" rx="66" ry="11" fill="#1c2740" opacity=".13"/>
+    <rect x="126" y="212" width="68" height="12" rx="3" fill="url(#cBase)"/>
+    <rect x="104" y="58" width="112" height="156" rx="6" fill="url(#cGlassL)"/>
+    <polygon points="104,58 216,58 194,86 126,86" fill="#fff" opacity=".55"/>
+    <polygon points="104,58 126,86 126,186 104,214" fill="url(#cGlass)"/>
+    <polygon points="216,58 194,86 194,186 216,214" fill="url(#cGlassD)"/>
+    <polygon points="104,214 216,214 194,186 126,186" fill="url(#cGlass)" opacity=".7"/>
+    <rect x="126" y="86" width="68" height="100" rx="2" fill="#eef3fb"/>
+    <polygon points="126,86 150,86 132,186 126,186" fill="#fff" opacity=".22"/>`,
+  'fr-heart-stand': `
+    <ellipse cx="160" cy="250" rx="58" ry="11" fill="#1c2740" opacity=".13"/>
+    <rect x="140" y="214" width="40" height="12" rx="3" fill="url(#cBase)"/>
+    <path d="M160 118 C149 92 116 92 113 124 C110 152 150 178 160 214 C170 178 210 152 207 124 C204 92 171 92 160 118 Z" fill="url(#cGlass)"/>
+    <path d="M160 118 C171 92 204 92 207 124 C210 152 170 178 160 214 Z" fill="url(#cGlassD)" opacity=".85"/>
+    <path d="M160 140 C154 126 136 126 134 142 C132 158 154 174 160 190 C166 174 188 158 186 142 C184 126 166 126 160 140 Z" fill="#eef3fb"/>
+    <path d="M124 118 C126 104 140 102 148 110" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="3" stroke-linecap="round"/>`,
+  'fr-wide-land': `
+    <ellipse cx="160" cy="248" rx="76" ry="11" fill="#1c2740" opacity=".13"/>
+    <rect x="126" y="204" width="68" height="12" rx="3" fill="url(#cBase)"/>
+    <rect x="74" y="92" width="172" height="118" rx="6" fill="url(#cGlassL)"/>
+    <polygon points="74,92 246,92 222,118 98,118" fill="#fff" opacity=".55"/>
+    <polygon points="74,92 98,118 98,184 74,210" fill="url(#cGlass)"/>
+    <polygon points="246,92 222,118 222,184 246,210" fill="url(#cGlassD)"/>
+    <polygon points="74,210 246,210 222,184 98,184" fill="url(#cGlass)" opacity=".7"/>
+    <rect x="98" y="118" width="124" height="66" rx="2" fill="#eef3fb"/>
+    <polygon points="98,118 128,118 110,184 98,184" fill="#fff" opacity=".2"/>`,
+  'or-sailboat': `
+    <ellipse cx="160" cy="250" rx="68" ry="12" fill="#1c2740" opacity=".13"/>
+    <path d="M110 232 Q160 216 210 232 Q198 248 160 240 Q122 248 110 232 Z" fill="url(#cBlue)"/>
+    <path d="M118 214 L202 214 L184 238 L136 238 Z" fill="url(#cGlass)"/>
+    <path d="M160 214 L202 214 L184 238 L160 238 Z" fill="url(#cGlassD)"/>
+    <rect x="158" y="92" width="4" height="124" rx="2" fill="#cdd9ee"/>
+    <path d="M156 96 L156 210 L114 210 Z" fill="url(#cGlassL)"/>
+    <path d="M164 106 L164 210 L202 210 Z" fill="url(#cGlass)"/>
+    <path d="M156 96 L156 210 L136 210 Z" fill="#fff" opacity=".35"/>`,
+  'or-apple': `
+    <ellipse cx="160" cy="250" rx="52" ry="11" fill="#1c2740" opacity=".13"/>
+    <path d="M160 122 C136 110 118 138 122 168 C126 200 148 222 160 222 C172 222 194 200 198 168 C202 138 184 110 160 122 Z" fill="url(#cGlass)"/>
+    <path d="M160 122 C184 110 202 138 198 168 C194 200 172 222 160 222 Z" fill="url(#cGlassD)" opacity=".8"/>
+    <ellipse cx="160" cy="126" rx="11" ry="5" fill="url(#cGlassD)" opacity=".5"/>
+    <path d="M140 132 C132 150 132 178 144 204 M180 132 C188 150 188 178 176 204" stroke="#fff" stroke-opacity=".3" stroke-width="1.3" fill="none"/>
+    <rect x="158" y="100" width="4" height="22" rx="2" fill="#8a6b45"/>
+    <path d="M162 108 C176 98 192 104 190 118 C176 122 164 118 162 108 Z" fill="url(#cGlass)" stroke="#cdd9ee" stroke-width="1"/>
+    <ellipse cx="142" cy="150" rx="11" ry="17" fill="#fff" opacity=".5"/>`,
+  'or-iceberg': `
+    <ellipse cx="160" cy="250" rx="66" ry="12" fill="#1c2740" opacity=".13"/>
+    <polygon points="116,150 158,96 214,138 198,232 126,232" fill="url(#cGlass)"/>
+    <polygon points="158,96 214,138 198,232 160,232" fill="url(#cGlassD)"/>
+    <polygon points="116,150 158,96 160,232 126,232" fill="url(#cGlassL)" opacity=".85"/>
+    <path d="M158 96 L138 232 M158 96 L182 232 M116 150 L160 176 L214 138" stroke="#fff" stroke-opacity=".3" stroke-width="1.3" fill="none"/>
+    <polygon points="132,150 142,150 138,196 130,190" fill="#fff" opacity=".4"/>`
+};
+const CAT_PALETTE = [
+  ['#8fd0ec', '#3f8fb5'], ['#9fe0d2', '#3aa593'], ['#c4a6e8', '#7b54b0'],
+  ['#f0b3c8', '#c96a8e'], ['#f3d59a', '#cf9a3e'], ['#a8d8a0', '#5aa15a'],
+  ['#aebfd6', '#5f7596'], ['#f1b48a', '#cf7a3e']
+];
+function hashStr(s){ let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return h>>>0; }
+// Parametric crystal icon generator: 21 categories share one drawing routine, colored & styled by id, ensuring visual consistency with zero manual art cost
+let catArtSeq = 0;
+function catArtSvg(id){
+  const pal = CAT_PALETTE[hashStr(id) % CAT_PALETTE.length];
+  const v = hashStr(id + 'shape') % 5;
+  const uid = 'cg' + (++catArtSeq);
+  const gems = [
+    'M160 64 L208 150 L160 256 L112 150 Z',
+    'M160 58 L206 138 L188 256 L132 256 L114 138 Z',
+    'M116 150 L160 64 L204 150 L204 200 L160 256 L116 200 Z',
+    'M160 60 L200 128 L182 256 L138 256 L120 128 Z',
+    'M160 60 L198 110 L198 200 L160 256 L122 200 L122 110 Z'
+  ];
+  const gem = gems[v];
+  return `<svg class="art" viewBox="0 0 320 320" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+    <defs><linearGradient id="${uid}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${pal[0]}"/><stop offset="1" stop-color="${pal[1]}"/></linearGradient></defs>
+    <ellipse cx="160" cy="268" rx="72" ry="12" fill="#1c2740" opacity=".12"/>
+    <path d="${gem}" fill="url(#${uid})" opacity=".94"/>
+    <path d="M160 60 L160 256 M112 150 L208 150" fill="none" stroke="#ffffff" stroke-opacity=".4" stroke-width="1.4"/>
+    <path d="${gem}" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="1"/>
+  </svg>`;
+}
+
+// 8 product range categories (consolidated from 21 sub-categories)
+// Each category has a `subs` array of original backend category IDs for product filtering.
+const CATEGORIES = [
+  { id: 'trophies-awards', name: 'Crystal Trophies & Awards', short: 'Trophies',
+    blurb: 'Corporate awards, sports trophies, custom medals and recognition gifts with engraved logos.',
+    subs: ['trophies','medals','wood-medals','glass-medals'], img: 'cat-trophies.jpg' },
+  { id: 'home-decor', name: 'Home Decor & Figurines', short: 'Home Decor',
+    blurb: 'Sculptures, ornaments, paperweights and desk decor that bring light and elegance to any space.',
+    subs: ['figurines','ornaments','paperweights','inner-carving'], img: 'cat-figurines.jpg' },
+  { id: 'office-desk', name: 'Office & Desk Gifts', short: 'Office',
+    blurb: 'Crystal pens, name blocks, watch stones and lighting that turn everyday items into keepsakes.',
+    subs: ['office','watch-stones','lighting','lamps'], img: 'cat-office.jpg' },
+  { id: 'photo-frames', name: 'Crystal Photo Frames', short: 'Photo Frames',
+    blurb: 'Classic bevelled crystal frames for weddings, anniversaries, corporate and personal memories.',
+    subs: ['frames'], img: 'cat-frames.jpg' },
+  { id: 'candle-holders', name: 'Candle Holders', short: 'Candles',
+    blurb: 'Tea-light and pillar candle holders crafted in crystal for warm, elegant ambiance.',
+    subs: ['candles'], img: 'cat-candles.jpg' },
+  { id: 'tableware-bar', name: 'Tableware & Barware', short: 'Tableware',
+    blurb: 'Crystal bowls, plates, wine stoppers and serving pieces for hospitality and gifting.',
+    subs: ['tableware','wine-stoppers','smoking'], img: 'cat-tableware.jpg' },
+  { id: 'perfume-fashion', name: 'Perfume & Fashion', short: 'Perfume',
+    blurb: 'Refined crystal perfume bottles, jewellery boxes and bracelets for beauty and gift collections.',
+    subs: ['perfume','jewelry-boxes','bracelets'], img: 'cat-perfume.jpg' },
+  { id: 'vases', name: 'Crystal Vases', short: 'Vases',
+    blurb: 'Decorative and floral vases, hand-cut and polished for brilliant light play.',
+    subs: ['vases'], img: 'cat-vases.jpg' }
+];
+// Static product samples for instant first paint + fallback when backend is unavailable.
+// loadProducts() replaces them with live backend data after page load.
+let PRODUCTS = [
+  { id: 'tr-faceted-peak', cat: 'trophies', name: 'Faceted Peak Award', desc: 'Angular optical-crystal peak on a weighted base. A flagship recognition piece.',
+    specs: { Material: 'K9 optical crystal', Size: 'H 20 / 25 / 30 cm', Weight: '0.9 - 1.8 kg', MOQ: '100 pcs', Customization: '3D laser + colour-print logo', Packaging: 'Foam-lined gift box', 'Lead time': '15 - 25 days' } },
+  { id: 'tr-star-column', cat: 'trophies', name: 'Star Column Trophy', desc: 'Slim crystal column crowned with a polished star. Clean silhouette for annual awards.',
+    specs: { Material: 'K9 optical crystal', Size: 'H 22 / 27 cm', Weight: '0.8 - 1.3 kg', MOQ: '100 pcs', Customization: '2D/3D engraving + gold-tone star', Packaging: 'Foam-lined gift box', 'Lead time': '15 - 25 days' } },
+  { id: 'tr-blue-globe', cat: 'trophies', name: 'Blue Accent Globe Award', desc: 'Clear crystal sphere set on a cobalt-tinted base. Popular for global partner programmes.',
+    specs: { Material: 'Optical crystal + coloured base', Size: 'H 16 / 19 cm', Weight: '1.0 - 1.5 kg', MOQ: '150 pcs', Customization: 'Sub-surface engraving inside globe', Packaging: 'Foam-lined gift box', 'Lead time': '20 - 30 days' } },
+  { id: 'cd-prism-taper', cat: 'candles', name: 'Prism Taper Holder', desc: 'Multi-bevel taper holder that throws prismatic light across the table.',
+    specs: { Material: 'Lead-free crystal glass', Size: 'H 9 cm, Ø 7 cm', 'Fits': 'Standard taper candle', MOQ: '300 pcs', Customization: 'Laser logo on base', Packaging: 'White box, 12 / carton', 'Lead time': '20 - 30 days' } },
+  { id: 'cd-cube-set', cat: 'candles', name: 'Tealight Cube Set', desc: 'Set of three faceted cubes in graduated sizes. A strong retail-gift value line.',
+    specs: { Material: 'Lead-free crystal glass', Size: 'Set of 3 (5 / 6 / 7 cm)', 'Fits': 'Tealight candle', MOQ: '500 sets', Customization: 'Custom set packaging', Packaging: 'Kraft gift-set box', 'Lead time': '25 - 35 days' } },
+  { id: 'cd-twin-arm', cat: 'candles', name: 'Twin-Arm Candelabra', desc: 'Two-arm crystal candelabra with polished stem. Hospitality and event favourite.',
+    specs: { Material: 'Crystal glass + metal frame', Size: 'H 26 cm, W 24 cm', 'Fits': '2 taper candles', MOQ: '200 pcs', Customization: 'Frame finish: silver / gold', Packaging: 'Foam-lined carton', 'Lead time': '25 - 35 days' } },
+  { id: 'fr-bevel-57', cat: 'frames', name: 'Bevelled 5×7 Frame', desc: 'Classic bevelled crystal frame with a warm edge sparkle. Everyday best-seller.',
+    specs: { Material: 'Crystal glass', 'Photo size': '5 × 7 in (13 × 18 cm)', Orientation: 'Portrait / landscape', MOQ: '300 pcs', Customization: 'Engraved message on border', Packaging: 'White box, 20 / carton', 'Lead time': '20 - 30 days' } },
+  { id: 'fr-heart-stand', cat: 'frames', name: 'Heart Standing Frame', desc: 'Heart-motif crystal frame for weddings and anniversary gifts.',
+    specs: { Material: 'Crystal glass', 'Photo size': '3.5 × 3.5 in', Orientation: 'Free-standing', MOQ: '300 pcs', Customization: 'Names + date engraving', Packaging: 'Satin gift box', 'Lead time': '20 - 30 days' } },
+  { id: 'fr-wide-land', cat: 'frames', name: 'Wide Landscape Frame', desc: 'Panoramic bevelled frame for group and event photography.',
+    specs: { Material: 'Crystal glass', 'Photo size': '6 × 4 in (15 × 10 cm)', Orientation: 'Landscape', MOQ: '250 pcs', Customization: 'Logo + event-title engraving', Packaging: 'White box, 16 / carton', 'Lead time': '20 - 30 days' } },
+  { id: 'or-sailboat', cat: 'ornaments', name: 'Crystal Sailboat', desc: 'Detailed crystal sailboat on a wave base. A signature desk and tourism gift.',
+    specs: { Material: 'Optical crystal', Size: 'H 15 cm', Weight: '0.7 kg', MOQ: '200 pcs', Customization: 'Engraved sail / base plate', Packaging: 'Foam-lined gift box', 'Lead time': '20 - 30 days' } },
+  { id: 'or-apple', cat: 'ornaments', name: 'Faceted Apple Paperweight', desc: 'Hand-faceted crystal apple. Compact, giftable, endlessly re-orderable.',
+    specs: { Material: 'Solid crystal', Size: 'Ø 8 cm', Weight: '0.5 kg', MOQ: '500 pcs', Customization: 'Laser logo on flat facet', Packaging: 'Kraft box, 24 / carton', 'Lead time': '20 - 30 days' } },
+  { id: 'or-iceberg', cat: 'ornaments', name: 'Diamond Iceberg Ornament', desc: 'Faceted iceberg block with sub-surface 3D engraving option. Premium corporate gift.',
+    specs: { Material: 'Optical crystal', Size: 'H 10 / 13 cm', Weight: '0.9 - 1.4 kg', MOQ: '150 pcs', Customization: '3D sub-surface logo / skyline', Packaging: 'Foam-lined gift box', 'Lead time': '20 - 30 days' } }
+];
+
+/* ============ App ============ */
+(function () {
+  'use strict';
+  document.body.classList.remove('no-js');
+  const CONTACT = { email: 'helen@crystalwto.com', mobile: '+8613758910356' };
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const esc = (s) => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const byId = (id) => PRODUCTS.find(p => p.id === id);
+  const catShort = (id) => {
+    // First try direct match, then search subs arrays
+    let c = CATEGORIES.find(x => x.id === id);
+    if (!c) c = CATEGORIES.find(x => x.subs && x.subs.includes(id));
+    return (c || {}).short || '';
+  };
+  const artSvg = (key) => `<svg class="art" viewBox="0 0 320 320" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid meet">${ART[key] || ''}</svg>`;
+
+  const KEY = 'cc_inquiry_v1';
+  let cart = load();
+  function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(cart)); } catch (e) {} }
+  const cartCount = () => Object.values(cart).reduce((a, b) => a + b, 0);
+
+  let toastT;
+  function toast(msg) { const el = $('#toast'); el.querySelector('span').textContent = msg; el.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove('show'), 2400); }
+
+  function renderCategories() {
+    $('#cat-grid').innerHTML = CATEGORIES.map(c => `
+      <a class="cat reveal" href="#products" data-cat="${c.id}">
+        <div class="cat-media"><img src="${c.img || 'cat-'+c.id+'.jpg'}" alt="${c.name}" loading="lazy" onerror="this.parentElement.innerHTML=catArtSvg('${c.id}')"></div>
+        <div class="cat-body"><h3>${esc(c.name)}</h3><p>${esc(c.blurb)}</p>
+          <span class="go">View collection <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div></a>`).join('');
+    $$('#cat-grid .cat').forEach(a => a.addEventListener('click', () => { setFilter(a.dataset.cat); document.getElementById('products').scrollIntoView({ behavior: 'smooth' }); }));
+  }
+  function renderFilters() {
+    const all = [{ id: 'all', short: 'All products' }].concat(CATEGORIES);
+    $('#filters').innerHTML = all.map(c => `<button class="filter${c.id === 'all' ? ' active' : ''}" data-cat="${c.id}">${esc(c.short)}</button>`).join('');
+    $$('#filters .filter').forEach(b => b.addEventListener('click', () => setFilter(b.dataset.cat)));
+    const active = $('#filters .filter.active');
+    if (active) active.scrollIntoView({ inline: 'center', block: 'nearest' });
+  }
+  let current = 'all', searchQ = '';
+  // Resolve a category ID to its subs array (for consolidated categories)
+  function catSubs(id) { const c = CATEGORIES.find(x => x.id === id); return (c && c.subs) ? c.subs : [id]; }
+  function setFilter(cat) { current = cat; $$('#filters .filter').forEach(b => b.classList.toggle('active', b.dataset.cat === cat)); renderProducts(); }
+  function debounce(fn, ms) { let t; return function () { clearTimeout(t); t = setTimeout(fn, ms); }; }
+
+  function mediaInner(p, big) {
+    const photo = p.imageUrl
+      ? `<img class="realphoto" alt="${esc(p.name)}" src="${esc(p.imageUrl)}" loading="lazy" onerror="this.remove()">`
+      : `<img class="realphoto" alt="${esc(p.name)}" src="images/products/${esc(p.id)}.jpg" loading="lazy" onerror="this.remove()">`;
+    return `${!big ? `<span class="tag">${esc(catShort(p.cat))}</span>` : ''}
+      <div class="art-wrap">${artSvg(p.id)}</div>${photo}`;
+  }
+  function plusSvg() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>'; }
+  function checkSvg() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>'; }
+  function arrowSvg() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'; }
+
+  function renderProducts() {
+    const q = (searchQ || '').trim().toLowerCase();
+    let list = current === 'all' ? PRODUCTS : PRODUCTS.filter(p => catSubs(current).includes(p.cat));
+    if (q) list = list.filter(p => (p.name + ' ' + p.desc + ' ' + Object.values(p.specs).join(' ')).toLowerCase().includes(q));
+    const grid = $('#prod-grid');
+    if (!list.length) {
+      grid.innerHTML = `<div class="empty-cat">${q ? 'No products match “' + esc(searchQ) + '”.' : 'This collection is being photographed — new pieces arrive every week.'}</div>`;
+      observeReveals(); return;
+    }
+    grid.innerHTML = list.map(p => {
+      const chips = Object.entries(p.specs).slice(0, 3).map(([k, v]) => `<span>${esc(k === 'Material' ? v : (k === 'MOQ' ? 'MOQ ' + v : v))}</span>`).join('');
+      const inCart = cart[p.id] > 0;
+      return `<article class="card reveal">
+          <div class="pmedia" data-view="${p.id}">${mediaInner(p, false)}</div>
+          <div class="pbody"><h3>${esc(p.name)}</h3><p class="pdesc">${esc(p.desc)}</p>
+            <div class="pspecs">${chips}</div>
+            <div class="pactions">
+              <button class="details-link" data-view="${p.id}">Details ${arrowSvg()}</button>
+              <button class="btn btn-primary btn-sm add-btn${inCart ? ' added' : ''}" data-add="${p.id}">${inCart ? checkSvg() + 'Added' : plusSvg() + 'Inquire'}</button>
+            </div></div></article>`;
+    }).join('');
+    $$('#prod-grid [data-add]').forEach(b => b.addEventListener('click', () => addToCart(b.dataset.add)));
+    $$('#prod-grid [data-view]').forEach(b => b.addEventListener('click', () => openQuickView(b.dataset.view)));
+    observeReveals();
+  }
+
+  function addToCart(id) { cart[id] = (cart[id] || 0) + 1; save(); syncBadge(); renderProducts(); toast(byId(id).name + ' added to inquiry'); }
+  function setQty(id, q) { q = Math.max(0, q | 0); if (q === 0) delete cart[id]; else cart[id] = q; save(); syncBadge(); renderDrawer(); renderProducts(); }
+  function syncBadge() { const n = cartCount(); $$('.inquiry-btn').forEach(b => { b.classList.toggle('has-items', n > 0); const c = b.querySelector('.count'); if (c) c.textContent = n; }); }
+
+  function openQuickView(id) {
+    const p = byId(id); if (!p) return;
+    const rows = Object.entries(p.specs).map(([k, v]) => `<div class="sr"><span class="k">${esc(k)}</span><span class="v">${esc(v)}</span></div>`).join('');
+    $('#modal-body').innerHTML = `
+      <div class="modal-media">${mediaInner(p, true)}</div>
+      <div class="modal-info"><span class="tag">${esc(catShort(p.cat))}</span><h3>${esc(p.name)}</h3><p class="mdesc">${esc(p.desc)}</p>
+        <div class="spec-table">${rows}</div>
+        <button class="btn btn-primary" data-add="${p.id}" style="width:100%;justify-content:center">${plusSvg()} Add to inquiry</button></div>`;
+    $('#modal-body [data-add]').addEventListener('click', function () { addToCart(p.id); this.innerHTML = checkSvg() + ' Added to inquiry'; this.classList.add('added'); });
+    $('#modal').classList.add('open'); document.body.style.overflow = 'hidden';
+  }
+  function closeModal() { $('#modal').classList.remove('open'); if (!$('#drawer').classList.contains('open')) document.body.style.overflow = ''; }
+
+  function openDrawer() { renderDrawer(); $('#drawer').classList.add('open'); $('#overlay').classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeDrawer() { $('#drawer').classList.remove('open'); $('#overlay').classList.remove('open'); if (!$('#modal').classList.contains('open')) document.body.style.overflow = ''; }
+
+  function renderDrawer() {
+    const ids = Object.keys(cart); const body = $('#drawer-body');
+    if (ids.length === 0) {
+      body.innerHTML = `<div class="inq-empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 7h12l1 13H5L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><b>Your inquiry list is empty</b>Browse the catalogue and add the crystal pieces you want a quotation for.</div>`;
+      $('#drawer-foot').style.display = 'none'; return;
+    }
+    $('#drawer-foot').style.display = 'block';
+    const items = ids.map(id => { const p = byId(id); if (!p) return '';
+      return `<div class="inq-item"><div class="thumb"><img class="realphoto" src="${p.imageUrl ? esc(p.imageUrl) : 'images/products/' + esc(p.id) + '.jpg'}" alt="" loading="lazy" onerror="this.remove()">${artSvg(p.id)}</div>
+          <div class="meta"><h4>${esc(p.name)}</h4><div class="mono">MOQ ${esc(p.specs.MOQ || '-')} · ${esc(catShort(p.cat))}</div>
+            <div class="qty"><button data-dec="${id}" aria-label="decrease">-</button><input type="text" inputmode="numeric" value="${cart[id]}" data-qty="${id}" aria-label="quantity"><button data-inc="${id}" aria-label="increase">+</button></div>
+          </div><button class="rm" data-rm="${id}">Remove</button></div>`;
+    }).join('');
+    body.innerHTML = `<div class="inq-items">${items}</div>` + formHtml();
+    $$('#drawer-body [data-inc]').forEach(b => b.onclick = () => setQty(b.dataset.inc, (cart[b.dataset.inc] || 0) + 1));
+    $$('#drawer-body [data-dec]').forEach(b => b.onclick = () => setQty(b.dataset.dec, (cart[b.dataset.dec] || 0) - 1));
+    $$('#drawer-body [data-rm]').forEach(b => b.onclick = () => setQty(b.dataset.rm, 0));
+    $$('#drawer-body [data-qty]').forEach(inp => inp.onchange = () => setQty(inp.dataset.qty, parseInt(inp.value.replace(/\D/g, ''), 10) || 0));
+  }
+  function formHtml() {
+    return `<form id="inq-form" class="inq-form" novalidate>
+        <div class="two"><div class="field"><label>Full name <span class="req">*</span></label><input name="name" placeholder="Jane Rossi"><small class="err">Please enter your name.</small></div>
+          <div class="field"><label>Company <span class="req">*</span></label><input name="company" placeholder="Rossi Gifts srl"><small class="err">Please enter your company.</small></div></div>
+        <div class="two"><div class="field"><label>Email <span class="req">*</span></label><input name="email" type="email" placeholder="jane@company.com"><small class="err">Please enter a valid email.</small></div>
+          <div class="field"><label>Country</label><input name="country" placeholder="Italy"></div></div>
+        <div class="field"><label>Requirements / message</label><textarea name="message" rows="3" placeholder="Target quantity, logo/engraving, packaging, delivery date"></textarea></div>
+      </form>`;
+  }
+  /* ---- Backend API submission helpers ---- */
+  const API_BASE = ((document.querySelector('meta[name="api-base"]') || {}).content || '').replace(/\/+$/, '');
+  const API = {
+    async postJSON(url, payload) {
+      const res = await fetch(API_BASE + url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const j = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error((j && j.error) ? j.error : ('HTTP ' + res.status));
+      return j;
+    },
+    async postForm(url, formEl) {
+      const fd = new FormData(formEl);
+      const res = await fetch(API_BASE + url, { method: 'POST', body: fd });
+      const j = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error((j && j.error) ? j.error : ('HTTP ' + res.status));
+      return j;
+    },
+  };
+  function mailtoFallback(addr, subject, body) {
+    window.location.href = 'mailto:' + addr + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  }
+
+  function submitInquiry() {
+    const form = $('#inq-form'); if (!form) return;
+    const data = {}; new FormData(form).forEach((v, k) => data[k] = v);
+    let ok = true;
+    const need = { name: v => v.trim(), company: v => v.trim(), email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) };
+    Object.keys(need).forEach(k => { const field = form.querySelector('[name="' + k + '"]').closest('.field'); const bad = !need[k](data[k] || ''); field.classList.toggle('invalid', bad); if (bad) ok = false; });
+    if (!ok) { toast('Please complete the required fields'); return; }
+    const lines = Object.keys(cart).map((id, i) => { const p = byId(id); return `${i + 1}. ${p.name}  x ${cart[id]}   (${p.specs.MOQ ? 'MOQ ' + p.specs.MOQ : ''})`; }).join('\n');
+    const subject = `Inquiry from ${data.company} - Yuzhou Crystal`;
+    const bodyTxt = `Hello Yuzhou Crystal team,\n\nWe would like a quotation for the following crystal products:\n\n${lines}\n\n--- Buyer details ---\nName:     ${data.name}\nCompany:  ${data.company}\nEmail:    ${data.email}\nCountry:  ${data.country || '-'}\n\nMessage:\n${data.message || '-'}\n\nThank you.`;
+    const items = Object.keys(cart).map(id => { const p = byId(id); return { id, name: p.name, qty: cart[id], moq: p.specs.MOQ || '' }; });
+    const payload = { name: data.name, company: data.company, email: data.email, country: data.country || '', message: data.message || '', items };
+    toast('Sending your inquiry…');
+    API.postJSON('/api/inquiries', payload).then(() => {
+      cart = {}; save(); syncBadge(); renderDrawer(); closeDrawer();
+      toast('Inquiry sent — our team will reply by email');
+    }).catch((e) => {
+      console.warn('Inquiry submit failed, email fallback:', e && e.message);
+      mailtoFallback(CONTACT.email, subject, bodyTxt);
+      toast('Could not reach the server — opened your email app instead');
+    });
+  }
+
+  /* ----- Custom design request ----- */
+  const DESIGN_CONTACT = 'design@yuzhoucrystal.com';
+  let refFile = null;
+  function initCustomForm() {
+    const form = $('#custom-form'); if (!form) return;
+    const drop = $('#custom-drop');
+    const fileInput = $('#custom-file');
+    const preview = $('#custom-preview');
+    const pvImg = $('#custom-prev-img');
+    const pvName = $('#custom-prev-name');
+    const pvSize = $('#custom-prev-size');
+    const pvRm = $('#custom-prev-rm');
+    const uploadField = form.querySelector('.upload').closest('.field');
+
+    function markOk() { if (uploadField) uploadField.classList.remove('invalid'); }
+    function setFile(file) {
+      if (!file) return;
+      if (!/^image\//.test(file.type)) { toast('Please upload an image file'); return; }
+      if (file.size > 8 * 1024 * 1024) { toast('Image is larger than 8 MB'); return; }
+      // Browser does not auto-populate <input> on drop; manually sync to ensure submission includes the file
+      try { const dt = new DataTransfer(); dt.items.add(file); fileInput.files = dt.files; } catch (e) {}
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        refFile = { name: file.name, size: file.size, dataUrl: e.target.result };
+        pvImg.src = e.target.result;
+        pvName.textContent = file.name;
+        pvSize.textContent = (file.size / 1024).toFixed(0) + ' KB';
+        preview.classList.add('show');
+        drop.style.display = 'none';
+        markOk();
+      };
+      reader.readAsDataURL(file);
+    }
+    function clearFile() { refFile = null; fileInput.value = ''; preview.classList.remove('show'); drop.style.display = ''; }
+
+    fileInput.addEventListener('change', () => setFile(fileInput.files[0]));
+    pvRm.addEventListener('click', clearFile);
+    ['dragenter', 'dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('drag'); }));
+    ['dragleave', 'drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('drag'); }));
+    drop.addEventListener('drop', e => { const f = e.dataTransfer.files && e.dataTransfer.files[0]; if (f) setFile(f); });
+
+    // clear invalid state as the user types
+    $$('#custom-form .field input, #custom-form .field textarea, #custom-form .field select').forEach(el => {
+      el.addEventListener('input', () => { const f = el.closest('.field'); if (f) f.classList.remove('invalid'); });
+      el.addEventListener('change', () => { const f = el.closest('.field'); if (f) f.classList.remove('invalid'); });
+    });
+
+    form.addEventListener('submit', (e) => { e.preventDefault(); submitCustom(); });
+  }
+  function submitCustom() {
+    const form = $('#custom-form'); if (!form) return;
+    const data = {}; new FormData(form).forEach((v, k) => data[k] = v);
+    let ok = true;
+    const need = {
+      name: v => v.trim(),
+      company: v => v.trim(),
+      email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+      brief: v => v.trim()
+    };
+    Object.keys(need).forEach(k => {
+      const el = form.querySelector('[name="' + k + '"]'); if (!el) return;
+      const field = el.closest('.field');
+      const bad = !need[k](data[k] || '');
+      if (field) field.classList.toggle('invalid', bad);
+      if (bad) ok = false;
+    });
+    const uploadField = form.querySelector('.upload').closest('.field');
+    if (!refFile) { if (uploadField) uploadField.classList.add('invalid'); ok = false; }
+    else if (uploadField) uploadField.classList.remove('invalid');
+    if (!ok) { toast('Please complete the required fields'); return; }
+
+    const refLine = refFile ? (refFile.name + ' (please attach the file in your email)') : '(No reference image attached)';
+    const subject = 'Custom design request from ' + data.company + ' - Yuzhou Crystal';
+    const bodyTxt =
+      'Hello Yuzhou Crystal design team,\n\n' +
+      'We would like to commission a custom crystal piece. Details below:\n\n' +
+      'Reference image:\n' + refLine + '\n\n' +
+      'Product type:     ' + (data.ptype || '-') + '\n' +
+      'Preferred size:   ' + (data.size || '-') + '\n' +
+      'Material:         ' + (data.material || '-') + '\n' +
+      'Target quantity:  ' + (data.qty || '-') + '\n' +
+      'Customization:    ' + (data.customization || '-') + '\n' +
+      'Required by:      ' + (data.deadline || '-') + '\n\n' +
+      'Detailed requirements:\n' + (data.brief || '-') + '\n\n' +
+      '--- Contact ---\n' +
+      'Name:    ' + data.name + '\n' +
+      'Company: ' + data.company + '\n' +
+      'Email:   ' + data.email + '\n' +
+      'Country: ' + (data.country || '-') + '\n\n' +
+      'Thank you.';
+    toast('Sending your request…');
+    API.postForm('/api/custom-requests', form).then(() => {
+      form.reset();
+      refFile = null;
+      const pv = $('#custom-preview'); if (pv) pv.classList.remove('show');
+      const dp = $('#custom-drop'); if (dp) dp.style.display = '';
+      toast('Request sent — our design team will be in touch');
+    }).catch((e) => {
+      console.warn('Custom request failed, email fallback:', e && e.message);
+      mailtoFallback(DESIGN_CONTACT, subject, bodyTxt);
+      toast('Could not reach the server — opened your email app instead');
+    });
+  }
+
+  /* ----- English date picker ----- */
+  const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  function initDatePicker(id) {
+    const el = document.getElementById(id); if (!el) return;
+    const inputEl = el.querySelector('.dp-input');
+    const hidden = el.querySelector('input[type=hidden]');
+    const pop = el.querySelector('.dp-pop');
+    const monthLabel = el.querySelector('.dp-hd span');
+    const dayGrid = el.querySelector('.dp-d');
+    const btnPrev = el.querySelector('.dp-hd button:first-of-type');
+    const btnNext = el.querySelector('.dp-hd button:last-of-type');
+    const btnClear = el.querySelector('.dp-clear');
+    const btnToday = el.querySelector('.dp-today');
+    const placeholder = el.querySelector('.dp-placeholder');
+    const valSpan = el.querySelector('.dp-val');
+    let viewY, viewM, selDate = null;
+    const today = new Date(); today.setHours(0,0,0,0);
+
+    function render(y, m) {
+      viewY = y; viewM = m;
+      monthLabel.textContent = MONTHS[m] + ' ' + y;
+      const first = new Date(y, m, 1);
+      const startDow = (first.getDay() + 6) % 7;
+      const daysInMonth = new Date(y, m+1, 0).getDate();
+      const prevDays = new Date(y, m, 0).getDate();
+      let html = '';
+      for (let i = startDow - 1; i >= 0; i--) { html += '<button type="button" class="out">' + (prevDays - i) + '</button>'; }
+      for (let d = 1; d <= daysInMonth; d++) {
+        const ts = new Date(y, m, d).getTime();
+        const cls = [selDate && ts === selDate.getTime() ? 'sel' : '', ts === today.getTime() ? 'today' : ''].filter(Boolean).join(' ');
+        html += '<button type="button" data-d="' + y + ',' + m + ',' + d + '" class="' + cls + '">' + d + '</button>';
+      }
+      const total = startDow + daysInMonth;
+      const next = total > 35 ? 42 - total : 35 - total;
+      for (let d = 1; d <= next; d++) { html += '<button type="button" class="out">' + d + '</button>'; }
+      dayGrid.innerHTML = html;
+    }
+
+    function pick(yyyy, mm, dd) {
+      selDate = new Date(yyyy, mm, dd); selDate.setHours(0,0,0,0);
+      hidden.value = yyyy + '-' + String(mm + 1).padStart(2,'0') + '-' + String(dd).padStart(2,'0');
+      placeholder.style.display = 'none';
+      valSpan.style.display = '';
+      valSpan.textContent = MONTHS[mm] + ' ' + dd + ', ' + yyyy;
+      render(viewY, viewM);
+    }
+
+    inputEl.addEventListener('click', e => { e.stopPropagation(); pop.classList.toggle('open'); if (pop.classList.contains('open') && !viewY) render(today.getFullYear(), today.getMonth()); });
+    inputEl.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pop.classList.toggle('open'); } });
+    btnPrev.addEventListener('click', e => { e.stopPropagation(); render(viewY, viewM - 1); });
+    btnNext.addEventListener('click', e => { e.stopPropagation(); render(viewY, viewM + 1); });
+    btnClear.addEventListener('click', e => { e.stopPropagation(); selDate = null; hidden.value = ''; placeholder.style.display = ''; valSpan.style.display = 'none'; render(viewY, viewM); });
+    btnToday.addEventListener('click', e => { e.stopPropagation(); const n = today; pick(n.getFullYear(), n.getMonth(), n.getDate()); });
+    dayGrid.addEventListener('click', e => { const b = e.target.closest('[data-d]'); if (!b) return; const parts = b.dataset.d.split(',').map(Number); pick(parts[0], parts[1], parts[2]); });
+    document.addEventListener('click', e => { if (!el.contains(e.target)) pop.classList.remove('open'); });
+  }
+
+  let io;
+  function observeReveals() {
+    if (!('IntersectionObserver' in window)) { $$('.reveal').forEach(e => e.classList.add('in')); return; }
+    io = io || new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    $$('.reveal:not(.in)').forEach(e => io.observe(e));
+  }
+  /* ----- Live catalogue from backend (replaces static PRODUCTS once loaded) ----- */
+  async function loadProducts() {
+    try {
+      const res = await fetch(API_BASE + '/api/products?pageSize=500');
+      const j = await res.json().catch(() => null);
+      if (!j || !j.ok) return;
+      const rows = (j.rows || []).map(p => ({
+        id: String(p.id),
+        cat: p.category,
+        name: p.name,
+        desc: p.description || '',
+        specs: (p.specs && typeof p.specs === 'object') ? p.specs : {},
+        imageUrl: p.imageUrl || null,
+      }));
+      if (rows.length) { PRODUCTS = rows; renderProducts(); }
+    } catch (e) {
+      console.warn('loadProducts failed, keeping static fallback:', e && e.message);
+    }
+  }
+
+  function initNav() {
+    const sheet = $('#msheet');
+    $('#hamburger').addEventListener('click', () => { sheet.classList.add('open'); document.body.style.overflow = 'hidden'; });
+    function closeSheet() { sheet.classList.remove('open'); document.body.style.overflow = ''; }
+    $('#msheet-close').addEventListener('click', closeSheet);
+    $$('#msheet a').forEach(a => a.addEventListener('click', closeSheet));
+  }
+
+  // 高亮当前浏览区域对应的导航项（Collections/Catalogue/Custom/Atelier/About/Contact）
+  function initActiveNav() {
+    const links = document.querySelectorAll('.nav-links a');
+    if (!links.length) return;
+    const map = {};
+    links.forEach(a => map[a.getAttribute('href').slice(1)] = a);
+    const ids = ['categories', 'products', 'custom', 'capabilities', 'about', 'contact'];
+    let ticking = false;
+    function setActive(id) {
+      links.forEach(a => a.classList.toggle('active', a === map[id]));
+    }
+    function compute() {
+      ticking = false;
+      const navH = document.querySelector('.header') ? document.querySelector('.header').offsetHeight : 0;
+      let cur = null;
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const r = el.getBoundingClientRect();
+        if (r.top <= navH + 90) cur = id;   // 记录最后进入视口上缘的 section
+      }
+      if (cur) setActive(cur);
+    }
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(compute); } }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    compute();
+  }
+  function handleContactSubmit() {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+    const data = {}; new FormData(form).forEach((v, k) => data[k] = v);
+    const subject = 'Contact from crystalwto.com — ' + (data.subject || 'General inquiry');
+    const body = 'Name: ' + (data.name || '') + '\n' +
+      'Company: ' + (data.company || '-') + '\n' +
+      'Email: ' + (data.email || '') + '\n' +
+      'Phone: ' + (data.phone || '-') + '\n' +
+      'Subject: ' + (data.subject || '-') + '\n\n' +
+      'Message:\n' + (data.message || '');
+    mailtoFallback(CONTACT.email, subject, body);
+    toast('Opening your email app…');
+    form.reset();
+  }
+
+  function init() {
+    renderCategories(); renderFilters(); renderProducts(); syncBadge(); observeReveals(); initNav(); initActiveNav(); initCustomForm(); initDatePicker('dp-deadline');
+    const pSearch = $('#p-search');
+    if (pSearch) pSearch.addEventListener('input', debounce(() => { searchQ = pSearch.value; renderProducts(); }, 180));
+    loadProducts();
+    $$('.inquiry-btn').forEach(b => b.addEventListener('click', openDrawer));
+    $('#drawer-close').addEventListener('click', closeDrawer);
+    $('#overlay').addEventListener('click', closeDrawer);
+    $('#submit-inq').addEventListener('click', submitInquiry);
+    $('#modal-close').addEventListener('click', closeModal);
+    $('#modal').addEventListener('click', e => { if (e.target === $('#modal')) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closeDrawer(); } });
+    const y = $('#year'); if (y) y.textContent = new Date().getFullYear();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+  </script>
+</body>
+</html>
