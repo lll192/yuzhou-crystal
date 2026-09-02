@@ -179,7 +179,7 @@ h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 500; letter-spac
    Categories — editorial tiles
    ========================================================= */
 .cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 22px; }
-.cat { position: relative; display: flex; flex-direction: column; }
+.cat { position: relative; display: flex; flex-direction: column; cursor: pointer; }
 .cat-media { position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--r-card);
   background: linear-gradient(180deg, var(--studio-1), var(--studio-2)); display: grid; place-items: center; border: 1px solid var(--line-2); }
 .cat-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
@@ -194,6 +194,9 @@ h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 500; letter-spac
 .cat:hover .go svg { transform: translateX(4px); }
 @media (max-width: 940px) { .cat-grid { gap: 18px; } }
 @media (max-width: 520px) { .cat-grid { gap: 14px; } .cat-body h3 { font-size: 17px; } }
+.cat-links { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: center; margin-top: 34px; }
+.cat-links a { font-size: 11px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-2); border-bottom: 1px solid var(--line-2); padding-bottom: 3px; }
+.cat-links a:hover { color: var(--ink); }
 
 /* =========================================================
    Products
@@ -670,6 +673,18 @@ h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 500; letter-spac
         <p>From corporate awards to home decor — crystal products designed, produced and finished in our own facility.</p>
       </div>
       <div class="cat-grid" id="cat-grid"></div>
+      <noscript>
+        <nav class="cat-links" aria-label="Product categories">
+          <a href="/crystal-trophies/">Crystal Trophies &amp; Awards</a>
+          <a href="/crystal-home-decor/">Home Decor &amp; Figurines</a>
+          <a href="/crystal-office-desk-gifts/">Office &amp; Desk Gifts</a>
+          <a href="/crystal-photo-frames/">Crystal Photo Frames</a>
+          <a href="/crystal-candle-holders/">Candle Holders</a>
+          <a href="/crystal-tableware-barware/">Tableware &amp; Barware</a>
+          <a href="/crystal-perfume-fashion/">Perfume &amp; Fashion</a>
+          <a href="/crystal-vases/">Crystal Vases</a>
+        </nav>
+      </noscript>
     </div>
   </section>
 
@@ -1219,28 +1234,28 @@ function catArtSvg(id){
 const CATEGORIES = [
   { id: 'trophies-awards', name: 'Crystal Trophies & Awards', short: 'Trophies',
     blurb: 'Corporate awards, sports trophies, custom medals and recognition gifts with engraved logos.',
-    subs: ['trophies','medals','wood-medals','glass-medals'], img: 'cat-trophies.jpg' },
+    subs: ['trophies','medals','wood-medals','glass-medals'], img: 'cat-trophies.jpg', url: '/crystal-trophies/' },
   { id: 'home-decor', name: 'Home Decor & Figurines', short: 'Home Decor',
     blurb: 'Sculptures, ornaments, paperweights and desk decor that bring light and elegance to any space.',
-    subs: ['figurines','ornaments','paperweights','inner-carving'], img: 'cat-figurines.jpg' },
+    subs: ['figurines','ornaments','paperweights','inner-carving'], img: 'cat-figurines.jpg', url: '/crystal-home-decor/' },
   { id: 'office-desk', name: 'Office & Desk Gifts', short: 'Office',
     blurb: 'Crystal pens, name blocks, watch stones and lighting that turn everyday items into keepsakes.',
-    subs: ['office','watch-stones','lighting','lamps'], img: 'cat-office.jpg' },
+    subs: ['office','watch-stones','lighting','lamps'], img: 'cat-office.jpg', url: '/crystal-office-desk-gifts/' },
   { id: 'photo-frames', name: 'Crystal Photo Frames', short: 'Photo Frames',
     blurb: 'Classic bevelled crystal frames for weddings, anniversaries, corporate and personal memories.',
-    subs: ['frames'], img: 'cat-frames.jpg' },
+    subs: ['frames'], img: 'cat-frames.jpg', url: '/crystal-photo-frames/' },
   { id: 'candle-holders', name: 'Candle Holders', short: 'Candles',
     blurb: 'Tea-light and pillar candle holders crafted in crystal for warm, elegant ambiance.',
-    subs: ['candles'], img: 'cat-candles.jpg' },
+    subs: ['candles'], img: 'cat-candles.jpg', url: '/crystal-candle-holders/' },
   { id: 'tableware-bar', name: 'Tableware & Barware', short: 'Tableware',
     blurb: 'Crystal bowls, plates, wine stoppers and serving pieces for hospitality and gifting.',
-    subs: ['tableware','wine-stoppers','smoking'], img: 'cat-tableware.jpg' },
+    subs: ['tableware','wine-stoppers','smoking'], img: 'cat-tableware.jpg', url: '/crystal-tableware-barware/' },
   { id: 'perfume-fashion', name: 'Perfume & Fashion', short: 'Perfume',
     blurb: 'Refined crystal perfume bottles, jewellery boxes and bracelets for beauty and gift collections.',
-    subs: ['perfume','jewelry-boxes','bracelets'], img: 'cat-perfume.jpg' },
+    subs: ['perfume','jewelry-boxes','bracelets'], img: 'cat-perfume.jpg', url: '/crystal-perfume-fashion/' },
   { id: 'vases', name: 'Crystal Vases', short: 'Vases',
     blurb: 'Decorative and floral vases, hand-cut and polished for brilliant light play.',
-    subs: ['vases'], img: 'cat-vases.jpg' }
+    subs: ['vases'], img: 'cat-vases.jpg', url: '/crystal-vases/' }
 ];
 // Static product samples for instant first paint + fallback when backend is unavailable.
 // loadProducts() replaces them with live backend data after page load.
@@ -1299,12 +1314,12 @@ let PRODUCTS = [
 
   function renderCategories() {
     $('#cat-grid').innerHTML = CATEGORIES.map(c => `
-      <a class="cat reveal" href="#products" data-cat="${c.id}">
+      <article class="cat reveal" data-cat="${c.id}">
         <div class="cat-media"><img src="${c.img || 'cat-'+c.id+'.jpg'}" alt="${c.name}" loading="lazy" onerror="this.parentElement.innerHTML=catArtSvg('${c.id}')"></div>
         <div class="cat-body"><h3>${esc(c.name)}</h3><p>${esc(c.blurb)}</p>
-          <span class="go">View collection <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </div></a>`).join('');
-    $$('#cat-grid .cat').forEach(a => a.addEventListener('click', () => { setFilter(a.dataset.cat); document.getElementById('products').scrollIntoView({ behavior: 'smooth' }); }));
+          <a class="go" href="${c.url}">View ${esc(c.short)} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div></article>`).join('');
+    $$('#cat-grid .cat').forEach(a => a.addEventListener('click', (e) => { if (e.target.closest('.go')) return; setFilter(a.dataset.cat); document.getElementById('products').scrollIntoView({ behavior: 'smooth' }); }));
   }
   function renderFilters() {
     const all = [{ id: 'all', short: 'All products' }].concat(CATEGORIES);
