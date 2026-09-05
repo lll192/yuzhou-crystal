@@ -111,6 +111,16 @@ const ACCOUNTS = new Map();
 
 const app = express();
 
+/* --------------------- Trust reverse proxy ---------------------
+ * 站点跑在 Cloudflare 隧道之后，必须声明信任反向代理，否则：
+ *   1) req.protocol 恒为 http -> 301 跳转的 Location 会被写成 http://，
+ *      导致浏览器多一次跳转，且协议与站内 canonical 不一致。
+ *   2) req.ip 恒为隧道 / 容器网关 IP -> 限流把全部访客算成同一个 IP，
+ *      结果是限流要么形同虚设，要么误伤全站。
+ * 全站流量必经 Cloudflare，其会清洗入站 XFF，取真实客户端 IP 是安全的。
+ * -------------------------------------------------------------- */
+app.set('trust proxy', true);
+
 /* ----------------------------- Security ----------------------------- */
 app.disable('x-powered-by');
 app.use((req, res, next) => {
@@ -486,6 +496,28 @@ app.post('/api/admin/logout', (req, res) => {
 
 app.use('/api/admin', admin);
 
+/* ----------------- Legacy URL 301 redirects -----------------
+ * 旧站遗留 URL 的显式 301 映射表。只登记确实存在过的路径。
+ * 表外的未知路径一律返回真 404（见文件末尾），不再兜底跳首页 ——
+ * 兜底 301 会让任意假路径都能打开，污染 Google 索引并稀释首页权重。
+ * 必须注册在 express.static 之前，否则旧文件会被直接当静态资源返回。
+ * ---------------------------------------------------------- */
+const LEGACY_REDIRECTS = {
+  '/contact.html': '/contact/',
+  '/yuzhoucrystal.html': '/',
+  // 旧 ASP 站点路径：待从 Google Search Console 导出已收录 URL 后在此补齐
+  // '/crystalwto/sales.asp': '/',
+};
+
+app.use((req, res, next) => {
+  if (req.method !== 'GET' && req.method !== 'HEAD') return next();
+  if (req.path.startsWith('/api') || req.path.startsWith('/admin')) return next();
+  const target = LEGACY_REDIRECTS[req.path];
+  if (!target) return next();
+  console.log(`[301 redirect] ${req.originalUrl} → ${target}`);
+  res.redirect(301, target);
+});
+
 /* --------------------------- Static frontend ------------------------ */
 app.use(express.static(PUBLIC_DIR, { extensions: ['html'] }));
 // Admin SPA
@@ -495,19 +527,19 @@ app.get('/admin/*', (req, res) => res.sendFile(path.join(PUBLIC_DIR, 'admin.html
 // 404 for unknown API routes
 app.use('/api', (req, res) => res.status(404).json({ ok: false, error: '未找到该接口。', code: 'NOT_FOUND' }));
 
-/* ----------------- Legacy URL 301 redirects -----------------
- * 旧 ASP 网站的链接（如 /crystalwto/sales.asp）被 Google 索引，
- * 新站是 Node.js/Express，这些路径不存在会返回 404。
- * 此 catch-all 将所有未匹配的非 API 路由 301 到首页。
- * Google 收到 301 后会逐步更新索引。
- * ---------------------------------------------------------- */
-app.get('*', (req, res, next) => {
-  // 跳过已处理的静态文件和 admin
-  if (req.path.startsWith('/api') || req.path.startsWith('/admin')) return next();
-  // 所有其他路径（.asp、旧目录等）→ 301 到首页
-  const target = req.protocol + '://' + req.get('host') + '/';
-  console.log(`[301 redirect] ${req.originalUrl} → ${target}`);
-  res.redirect(301, target);
+/* -------------------- 404 for unknown pages -------------------
+ * 未匹配的路径返回真正的 404 状态码，让搜索引擎能正确识别
+ * 该 URL 不存在，而不是把它当成一个能打开首页的入口。
+ * -------------------------------------------------------------- */
+app.use((req, res) => {
+  const fp = path.join(PUBLIC_DIR, '404.html');
+  if (fs.existsSync(fp)) return res.status(404).sendFile(fp);
+  res.status(404).type('html').send(
+    '<!doctype html><meta charset="utf-8"><title>404 Not Found</title>' +
+    '<h1>404 — Page not found</h1>' +
+    '<p>The page you requested does not exist.</p>' +
+    '<p><a href="/">Back to homepage</a></p>'
+  );
 });
 
 /* ------------------------------- Start ------------------------------ */
