@@ -221,6 +221,10 @@ h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 500; letter-spac
 @media (max-width: 1200px) { .prod-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; } }
 @media (max-width: 940px) { .prod-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
 @media (max-width: 520px) { .prod-grid { grid-template-columns: 1fr; gap: 20px; } .filters { flex-wrap: wrap; overflow-x: visible; } }
+/* 方案 C：仅展示前 8 件 + View all 出口 */
+.prod-more { text-align: center; margin-top: 40px; }
+.prod-more a { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 3px; transition: gap .2s var(--ease), opacity .2s var(--ease); }
+.prod-more a:hover { gap: 14px; opacity: .7; }
 .card { background: transparent; display: flex; flex-direction: column; }
 .pmedia { position: relative; aspect-ratio: 3 / 4; overflow: hidden; cursor: pointer; border-radius: var(--r-card);
   background: linear-gradient(180deg, var(--studio-1) 0%, var(--studio-2) 100%); display: grid; place-items: center; border: 1px solid var(--line-2); }
@@ -704,6 +708,9 @@ h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 500; letter-spac
         <div class="filters" id="filters"></div>
       </div>
       <div class="prod-grid" id="prod-grid"></div>
+      <div class="prod-more">
+        <a href="/crystal-trophies/" id="prod-viewall">Browse all crystal collections <span aria-hidden="true">&rarr;</span></a>
+      </div>
     </div>
   </section>
 
@@ -1355,6 +1362,7 @@ let PRODUCTS = [
     const q = (searchQ || '').trim().toLowerCase();
     let list = current === 'all' ? PRODUCTS : PRODUCTS.filter(p => catSubs(current).includes(p.cat));
     if (q) list = list.filter(p => (p.name + ' ' + p.desc + ' ' + Object.values(p.specs).join(' ')).toLowerCase().includes(q));
+    list = list.slice(0, 8);   // 方案 C：仅展示前 8 件，缩短 catalogue 区，便于下滑切页
     const grid = $('#prod-grid');
     if (!list.length) {
       grid.innerHTML = `<div class="empty-cat">${q ? 'No products match “' + esc(searchQ) + '”.' : 'This collection is being photographed — new pieces arrive every week.'}</div>`;
@@ -1695,6 +1703,8 @@ let PRODUCTS = [
     window.addEventListener('scroll', onScroll, { passive: true });
     compute();
   }
+
+  /* Catalogue 方案 C：仅展示前 8 件，无需 carousel JS */
   function handleContactSubmit() {
     const form = document.getElementById('contact-form');
     if (!form) return;
