@@ -396,12 +396,14 @@ h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 500; letter-spac
    About + Contact
    ========================================================= */
 .about { background: var(--bg-warm); border-top: 1px solid var(--line); }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
 .about-copy h2 { font-size: clamp(28px, 3.8vw, 46px); }
 .about-copy p { color: var(--muted); font-size: 16px; margin: 20px 0 0; }
 .about-points { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 32px; }
 .about-points .ap { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; font-weight: 600; color: var(--ink-2); }
 .about-points .ap svg { width: 18px; height: 18px; color: var(--brand); flex: none; margin-top: 2px; }
+.about-visual { position: relative; }
+.about-visual img { display: block; width: 100%; height: auto; object-fit: contain; border-radius: 8px; }
 .contact-card { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 34px; box-shadow: var(--sh-1); }
 .contact-card h3 { font-size: 24px; }
 .contact-card .company-zh { color: var(--faint); font-size: 12px; letter-spacing: 0.04em; margin: 6px 0 22px; }
@@ -867,6 +869,9 @@ h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 500; letter-spac
           <div class="ap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg> Consistent re-orders</div>
           <div class="ap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg> Responsive English support</div>
         </div>
+      </div>
+      <div class="about-visual reveal">
+        <img src="images/about/pujiang-vases-blue.jpg" alt="Blue pressed-crystal vases hand-finished in Pujiang, with a fresh rose arrangement" loading="lazy" width="900" height="1345">
       </div>
     </div>
   </section>
