@@ -7,6 +7,16 @@
 
   const esc = (value) => String(value ?? '').replace(/[&<>\"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]));
 
+  // Always-visible "← Home" link in the header so visitors can return from any landing page
+  const headerWrap = document.querySelector('.seo-header .seo-wrap');
+  if (headerWrap && !headerWrap.querySelector('.seo-home')) {
+    const home = document.createElement('a');
+    home.className = 'seo-home';
+    home.href = '/';
+    home.innerHTML = '&#8592; Home';
+    headerWrap.appendChild(home);
+  }
+
   const categoryContent = {
     trophies: {
       title: 'Choosing Custom Crystal Trophies for Corporate and Sports Recognition',
