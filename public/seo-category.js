@@ -106,11 +106,14 @@
         grid.innerHTML = '<div class="seo-empty">Products in this collection are being updated. Contact us for the current catalogue and custom options.</div>';
         return;
       }
+      if (window.YZInquiry) window.YZInquiry.register(rows);
       grid.innerHTML = rows.map(p => {
         const image = p.imageUrl ? `<img src="${esc(p.imageUrl)}" alt="${esc(p.name || 'Crystal product')}" loading="lazy" decoding="async">` : '<div class="seo-product-placeholder" aria-hidden="true"></div>';
         const specs = p.specs && typeof p.specs === 'object' ? Object.entries(p.specs).slice(0,2).map(([k,v]) => `${esc(k)}: ${esc(v)}`).join(' · ') : '';
-        return `<article class="seo-product">${image}<div class="seo-product-body"><div class="seo-product-name">${esc(p.name || 'Crystal product')}</div>${specs ? `<div class="seo-product-meta">${specs}</div>` : ''}</div></article>`;
+        const inCart = !!(window.YZInquiry && window.YZInquiry.has(p.id));
+        return `<article class="seo-product">${image}<div class="seo-product-body"><div class="seo-product-name">${esc(p.name || 'Crystal product')}</div>${specs ? `<div class="seo-product-meta">${specs}</div>` : ''}<button type="button" class="seo-inquire${inCart ? ' added' : ''}" data-yz-add="${esc(p.id)}">${inCart ? 'Added ✓' : 'Inquire'}</button></div></article>`;
       }).join('');
+      if (window.YZInquiry) window.YZInquiry.sync();
 
       const canonical = document.querySelector('link[rel="canonical"]');
       const pageUrl = canonical ? canonical.href : location.href.split('#')[0];
