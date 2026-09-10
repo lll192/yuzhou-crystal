@@ -67,7 +67,7 @@
     const section = document.createElement('section');
     section.className = 'seo-section seo-editorial';
     section.dataset.seoEditorial = '';
-    section.innerHTML = `<h2>${esc(data.title)}</h2><p>${esc(data.text)}</p><div class="seo-links seo-related-links">${data.links.map(([label, href]) => `<a href="${esc(href)}">${esc(label)} →</a>`).join('')}</div>`;
+    section.innerHTML = `<div class="wrap"><h2>${esc(data.title)}</h2><p>${esc(data.text)}</p><div class="seo-links seo-related-links">${data.links.map(([label, href]) => `<a href="${esc(href)}">${esc(label)} →</a>`).join('')}</div></div>`;
     hero.insertAdjacentElement('afterend', section);
   };
 
