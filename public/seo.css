@@ -40,3 +40,4 @@
 .yz-toast{position:fixed;left:50%;bottom:96px;transform:translate(-50%,12px);z-index:1100;padding:11px 18px;border-radius:999px;background:#0b1221;color:#fff;font-size:13px;opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease}
 .yz-toast.show{opacity:1;transform:translate(-50%,0)}
 @media(max-width:520px){.yz-cart-btn{right:16px;bottom:16px}.yz-row{grid-template-columns:1fr}}
+.seo-product{display:flex;flex-direction:column}.seo-product .seo-product-body{flex:1}.seo-inquire{margin-top:auto}
