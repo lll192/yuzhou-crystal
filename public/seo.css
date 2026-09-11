@@ -41,3 +41,4 @@
 .yz-toast.show{opacity:1;transform:translate(-50%,0)}
 @media(max-width:520px){.yz-cart-btn{right:16px;bottom:16px}.yz-row{grid-template-columns:1fr}}
 .seo-product{display:flex;flex-direction:column}.seo-product .seo-product-body{flex:1}.seo-inquire{margin-top:auto}
+.yz-qty input.yz-qty-input{width:46px;height:26px;padding:0 4px;text-align:center;border:1px solid #ddd9d1;border-radius:4px;background:#fff;font:inherit;font-size:14px;color:#16181d;appearance:textfield;-moz-appearance:textfield}.yz-qty input.yz-qty-input:focus{outline:none;border-color:#d4a843}.yz-qty input.yz-qty-input::-webkit-outer-spin-button,.yz-qty input.yz-qty-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}

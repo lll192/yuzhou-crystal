@@ -111,6 +111,17 @@
       if (act === 'del') delete cart[id];
       save(); sync(); renderList();
     });
+    listEl.addEventListener('change', function (e) {
+      var inp = e.target.closest ? e.target.closest('.yz-qty-input') : null;
+      if (!inp) return;
+      var id = inp.getAttribute('data-qty-id');
+      if (!id || !(parseInt(cart[id], 10) > 0)) return;
+      var q = parseInt(inp.value, 10);
+      if (!q || q < 1) q = 1;
+      if (q > 1000000) q = 1000000;
+      cart[id] = q;
+      save(); sync(); renderList();
+    });
     formEl.addEventListener('submit', submit);
 
     sync();
@@ -139,9 +150,9 @@
       return '<div class="yz-item">' + img +
         '<div class="yz-item-body"><div class="yz-item-name">' + esc(it.name) + '</div>' +
         (it.moq ? '<div class="yz-item-moq">MOQ ' + esc(it.moq) + '</div>' : '') +
-        '<div class="yz-qty"><button type="button" data-act="dec" data-id="' + esc(it.id) + '">&minus;</button>' +
-        '<span>' + it.qty + '</span>' +
-        '<button type="button" data-act="inc" data-id="' + esc(it.id) + '">+</button>' +
+        '<div class="yz-qty"><button type="button" data-act="dec" data-id="' + esc(it.id) + '" aria-label="Decrease">&minus;</button>' +
+        '<input type="number" min="1" step="1" inputmode="numeric" class="yz-qty-input" data-qty-id="' + esc(it.id) + '" value="' + it.qty + '" aria-label="Quantity for ' + esc(it.name) + '">' +
+        '<button type="button" data-act="inc" data-id="' + esc(it.id) + '" aria-label="Increase">+</button>' +
         '<button type="button" class="yz-del" data-act="del" data-id="' + esc(it.id) + '">Remove</button></div></div></div>';
     }).join('');
   }
