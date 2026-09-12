@@ -7,6 +7,8 @@
 
   const esc = (value) => String(value ?? '').replace(/[&<>\"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]));
 
+  const productById = {}; // 供详情弹窗按 id 取产品
+
   // Always-visible "← Home" link in the header so visitors can return from any landing page
   const headerWrap = document.querySelector('.seo-header .seo-wrap');
   if (headerWrap && !headerWrap.querySelector('.seo-home')) {
@@ -101,6 +103,7 @@
     .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
     .then(data => {
       const rows = Array.isArray(data.rows) ? data.rows : [];
+      rows.forEach(p => { productById[String(p.id)] = p; });
       if (status) status.remove();
       if (!rows.length) {
         grid.innerHTML = '<div class="seo-empty">Products in this collection are being updated. Contact us for the current catalogue and custom options.</div>';
@@ -111,9 +114,18 @@
         const image = p.imageUrl ? `<img src="${esc(p.imageUrl)}" alt="${esc(p.name || 'Crystal product')}" loading="lazy" decoding="async">` : '<div class="seo-product-placeholder" aria-hidden="true"></div>';
         const specs = p.specs && typeof p.specs === 'object' ? Object.entries(p.specs).slice(0,2).map(([k,v]) => `${esc(k)}: ${esc(v)}`).join(' · ') : '';
         const inCart = !!(window.YZInquiry && window.YZInquiry.has(p.id));
-        return `<article class="seo-product">${image}<div class="seo-product-body"><div class="seo-product-name">${esc(p.name || 'Crystal product')}</div>${specs ? `<div class="seo-product-meta">${specs}</div>` : ''}<button type="button" class="seo-inquire${inCart ? ' added' : ''}" data-yz-add="${esc(p.id)}">${inCart ? 'Added ✓' : 'Inquire'}</button></div></article>`;
+        return `<article class="seo-product" data-yz-id="${esc(p.id)}">${image}<div class="seo-product-body"><div class="seo-product-name">${esc(p.name || 'Crystal product')}</div>${specs ? `<div class="seo-product-meta">${specs}</div>` : ''}<div class="seo-product-actions"><button type="button" class="seo-details" data-yz-view="${esc(p.id)}">Details</button><button type="button" class="seo-inquire${inCart ? ' added' : ''}" data-yz-add="${esc(p.id)}">${inCart ? 'Added ✓' : 'Inquire'}</button></div></div></article>`;
       }).join('');
       if (window.YZInquiry) window.YZInquiry.sync();
+
+      if (!grid.dataset.yzBound) {
+        grid.dataset.yzBound = '1';
+        grid.addEventListener('click', (e) => {
+          if (e.target.closest('[data-yz-add]')) return; // Inquire 由 YZInquiry 全局委托处理，不弹窗
+          const card = e.target.closest('.seo-product');
+          if (card) openYzModal(card.dataset.yzId);
+        });
+      }
 
       const canonical = document.querySelector('link[rel="canonical"]');
       const pageUrl = canonical ? canonical.href : location.href.split('#')[0];
@@ -129,4 +141,60 @@
     .catch(() => {
       if (status) status.textContent = 'Catalogue preview is temporarily unavailable. Please contact us for the latest product list.';
     });
+
+  /* ---------- Quick view modal（与首页 #modal 视觉一致，覆盖全部分类页） ---------- */
+  const prettyCat = (c) => String(c || '').replace(/^crystal-/, '').replace(/-/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase());
+
+  function ensureYzModal() {
+    let modal = document.getElementById('yz-quickview');
+    if (modal) return modal;
+    modal = document.createElement('div');
+    modal.className = 'yz-modal';
+    modal.id = 'yz-quickview';
+    modal.setAttribute('aria-hidden', 'true');
+    modal.innerHTML = '<div class="yz-modal-card"><button type="button" class="yz-modal-close" aria-label="Close">&times;</button><div class="yz-modal-body" id="yz-qv-body"></div></div>';
+    document.body.appendChild(modal);
+    modal.querySelector('.yz-modal-close').addEventListener('click', closeYzModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeYzModal(); });
+    return modal;
+  }
+
+  function closeYzModal() {
+    const modal = document.getElementById('yz-quickview');
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    const drawerOpen = !!(window.YZInquiry && document.querySelector('.yz-drawer.open'));
+    if (!drawerOpen) document.body.style.overflow = '';
+  }
+
+  function openYzModal(id) {
+    const p = productById[String(id)] || productById[id];
+    if (!p) return;
+    const modal = ensureYzModal();
+    const desc = p.description || p.desc || '';
+    const specRows = (p.specs && typeof p.specs === 'object')
+      ? Object.entries(p.specs).map(([k, v]) => `<div class="sr"><span class="k">${esc(k)}</span><span class="v">${esc(v)}</span></div>`).join('')
+      : '';
+    const img = p.imageUrl
+      ? `<img class="yz-modal-photo" src="${esc(p.imageUrl)}" alt="${esc(p.name || 'Crystal product')}">`
+      : '<div class="yz-modal-ph-placeholder" aria-hidden="true"></div>';
+    const inCart = !!(window.YZInquiry && window.YZInquiry.has(p.id));
+    modal.querySelector('#yz-qv-body').innerHTML = `
+      <div class="yz-modal-media">${img}</div>
+      <div class="yz-modal-info">
+        <span class="tag">${esc(prettyCat(p.category))}</span>
+        <h3>${esc(p.name || 'Crystal product')}</h3>
+        ${desc ? `<p class="mdesc">${esc(desc)}</p>` : ''}
+        ${specRows ? `<div class="spec-table">${specRows}</div>` : ''}
+        <button type="button" class="seo-inquire yz-qv-add${inCart ? ' added' : ''}" data-yz-add="${esc(p.id)}">${inCart ? 'Added ✓' : 'Add to inquiry'}</button>
+      </div>`;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { const m = document.getElementById('yz-quickview'); if (m && m.classList.contains('open')) closeYzModal(); }
+  });
 })();
