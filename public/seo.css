@@ -65,7 +65,7 @@
 .yz-qv-add{margin-top:8px;width:100%;justify-content:center}
 .seo-product-actions{margin-top:auto;display:flex;gap:8px}
 .seo-product .seo-inquire{margin-top:0;flex:1}
-.seo-details{margin-top:0;flex:1;padding:11px 14px;border:1px solid rgba(0,0,0,.14);border-radius:7px;background:#fff;color:#1f2430;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s,border-color .2s}
+.seo-details{margin-top:0;flex:1;padding:11px 14px;border:1px solid rgba(0,0,0,.14);border-radius:7px;background:#fff;color:#1f2430;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;transition:background .2s,border-color .2s}
 .seo-details:hover{background:#f5f6f8;border-color:rgba(0,0,0,.25)}
 @media (max-width:680px){
   .yz-modal-card{grid-template-columns:1fr}
