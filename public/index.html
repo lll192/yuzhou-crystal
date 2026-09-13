@@ -157,7 +157,7 @@ h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 500; letter-spac
 @keyframes floaty { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-12px) } }
 @media (prefers-reduced-motion: reduce) { .hero-crystal { animation: none; } }
 .hero-caption { display: none; }
-@media (max-width: 940px) { .hero-grid { grid-template-columns: 1fr; gap: 8px; padding: 56px 0 40px; } .hero-stage { min-height: 360px; order: -1; } .hero::before { background-position: center; opacity: .12; } }
+@media (max-width: 940px) { .hero-grid { grid-template-columns: 1fr; gap: 8px; padding: 56px 0 40px; text-align: center; } .hero-stage { min-height: 360px; order: -1; } .hero::before { background-position: center; opacity: .12; } .hero-cta { justify-content: center; } .hero-meta { justify-content: center; margin-top: 34px; } }
 
 /* =========================================================
    Trust strip
