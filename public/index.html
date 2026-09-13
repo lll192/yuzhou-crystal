@@ -194,7 +194,7 @@ h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 500; letter-spac
 .cat .go svg { width: 14px; height: 14px; transition: transform .25s var(--ease); }
 .cat:hover .go svg { transform: translateX(4px); }
 @media (max-width: 940px) { .cat-grid { gap: 18px; } }
-@media (max-width: 520px) { .cat-grid { gap: 14px; } .cat-body h3 { font-size: 17px; } }
+@media (max-width: 520px) { .cat-grid { gap: 14px; grid-template-columns: repeat(2, 1fr); } .cat-body h3 { font-size: 17px; } }
 .cat-links { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: center; margin-top: 34px; }
 .cat-links a { font-size: 11px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-2); border-bottom: 1px solid var(--line-2); padding-bottom: 3px; }
 .cat-links a:hover { color: var(--ink); }
@@ -220,7 +220,7 @@ h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 500; letter-spac
 .prod-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 @media (max-width: 1200px) { .prod-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; } }
 @media (max-width: 940px) { .prod-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
-@media (max-width: 520px) { .prod-grid { grid-template-columns: 1fr; gap: 20px; } .filters { flex-wrap: wrap; overflow-x: visible; } }
+@media (max-width: 520px) { .prod-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; } .filters { flex-wrap: wrap; overflow-x: visible; } }
 /* 方案 C：仅展示前 8 件 + View all 出口 */
 .prod-more { text-align: center; margin-top: 40px; }
 .prod-more a { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 3px; transition: gap .2s var(--ease), opacity .2s var(--ease); }
