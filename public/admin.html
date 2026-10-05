@@ -65,6 +65,16 @@
   .items li:last-child{border-bottom:0}
   .imgwrap{margin-top:12px}
   .imgwrap img{max-width:100%;border:1px solid var(--line);border-radius:8px}
+  .yzdrop{border:2px dashed #d5d8df;border-radius:10px;background:#fbfbfc;text-align:center;padding:22px 16px;cursor:pointer;transition:border-color .15s,background .15s;outline:none}
+  .yzdrop:hover{border-color:#b9bec8;background:#f6f7f9}
+  .yzdrop:focus-visible{border-color:var(--brand)}
+  .yzdrop.over{border-color:var(--brand);background:#fdeff0}
+  .yzdrop.has{border-style:solid;border-color:#cfd3da}
+  .yz-ico{width:34px;height:34px;margin:0 auto 8px;display:block;color:var(--faint)}
+  .yzdrop.over .yz-ico{color:var(--brand)}
+  .yz-t{font-weight:700;font-size:13.5px}
+  .yz-s{color:var(--faint);font-size:12px;margin-top:4px}
+  .yz-name{margin-top:8px;font-size:12px;color:var(--ok);font-weight:700;word-break:break-all}
   .close{cursor:pointer;border:0;background:transparent;font-size:20px;line-height:1;color:var(--ink-2)}
   #login{max-width:380px;margin:120px auto;background:#fff;border:1px solid var(--line);border-radius:12px;padding:28px;box-shadow:var(--shadow)}
   #login h2{margin:0 0 6px}
@@ -184,7 +194,16 @@
             <div class="field" style="margin-bottom:12px"><label>描述</label><textarea name="description" rows="3" style="width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font:inherit"></textarea></div>
             <div class="field" style="margin-bottom:12px"><label>规格参数（每行 Key: Value）</label><textarea name="specs" rows="4" placeholder="Material: K9 optical crystal&#10;Size: H 20 cm&#10;MOQ: 100 pcs" style="width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font:inherit"></textarea></div>
             <div class="field" style="margin-bottom:12px"><label>排序（数字小在前）</label><input name="sort_order" type="number" value="0" style="width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font:inherit"></div>
-            <div class="field"><label>产品图片</label><input type="file" name="image" accept="image/*"><div class="imgwrap" id="prod-preview"></div></div>
+            <div class="field"><label>产品图片</label>
+              <div class="yzdrop" id="prod-drop" tabindex="0" role="button" aria-label="拖拽图片到此处，或点击选择文件">
+                <input type="file" name="image" id="prod-image" accept="image/*" hidden>
+                <svg class="yz-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg>
+                <div class="yz-t">把图片拖到这里，或点击选择文件</div>
+                <div class="yz-s">支持 JPG / PNG / WebP，建议 3:4 竖图</div>
+                <div class="yz-name" id="prod-dropname" hidden></div>
+              </div>
+              <div class="imgwrap" id="prod-preview"></div>
+            </div>
           </form>
         </div>
         <div class="foot">
@@ -436,6 +455,7 @@
     prodEditId = id || null;
     var f=document.getElementById('prod-form'); f.reset();
     document.getElementById('prod-preview').innerHTML='';
+    if(window.yzResetDrop) yzResetDrop();
     document.getElementById('prod-del').style.display = id ? '' : 'none';
     document.getElementById('prod-title').textContent = id ? '编辑产品' : '新增产品';
     if(id){
@@ -477,11 +497,44 @@
   document.getElementById('prod-close').onclick=function(){ document.getElementById('prod-overlay').classList.remove('open'); };
   document.getElementById('prod-del').onclick=function(){ if(prodEditId && confirm('确定删除该产品？')) deleteProduct(prodEditId); };
   document.getElementById('prod-form').addEventListener('submit', function(e){ e.preventDefault(); });
-  document.getElementById('prod-form').elements['image'].addEventListener('change', function(e){
-    var file=e.target.files[0]; if(!file) return;
-    var r=new FileReader(); r.onload=function(ev){ document.getElementById('prod-preview').innerHTML='<img src="'+ev.target.result+'" style="max-width:160px;border:1px solid var(--line);border-radius:8px">'; };
+  // —— 产品图片：拖拽上传 / 点击选择 ——
+  var yzDrop=document.getElementById('prod-drop');
+  var yzInput=document.getElementById('prod-image');
+  var yzPrev=document.getElementById('prod-preview');
+  var yzName=document.getElementById('prod-dropname');
+  function yzSetFile(file){
+    if(!file) return;
+    if(file.type && file.type.indexOf('image/')!==0){ alert('请拖入图片文件（JPG / PNG / WebP）。'); return; }
+    // 写回 input.files，保证保存时 FormData 依然能带上 image 字段（服务端无需改动）
+    try{ var dt=new DataTransfer(); dt.items.add(file); yzInput.files=dt.files; }
+    catch(err){ alert('当前浏览器不支持拖拽写入，请点击区域改用文件选择。'); return; }
+    var r=new FileReader();
+    r.onload=function(ev){ yzPrev.innerHTML='<img src="'+ev.target.result+'" style="max-width:160px;border:1px solid var(--line);border-radius:8px">'; };
     r.readAsDataURL(file);
+    yzDrop.classList.add('has');
+    yzName.hidden=false;
+    yzName.textContent='已选择：'+file.name+'（'+(file.size/1024).toFixed(0)+' KB，保存后生效）';
+  }
+  function yzResetDrop(){
+    yzDrop.classList.remove('has','over');
+    yzName.hidden=true; yzName.textContent='';
+  }
+  yzDrop.addEventListener('click', function(e){ if(e.target===yzInput) return; yzInput.click(); });
+  yzDrop.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); yzInput.click(); } });
+  yzInput.addEventListener('change', function(e){ yzSetFile(e.target.files[0]); });
+  ['dragenter','dragover'].forEach(function(t){
+    yzDrop.addEventListener(t, function(e){ e.preventDefault(); e.stopPropagation(); yzDrop.classList.add('over'); });
   });
+  yzDrop.addEventListener('dragleave', function(e){ if(yzDrop.contains(e.relatedTarget)) return; yzDrop.classList.remove('over'); });
+  yzDrop.addEventListener('drop', function(e){
+    e.preventDefault(); e.stopPropagation(); yzDrop.classList.remove('over');
+    yzSetFile(e.dataTransfer.files && e.dataTransfer.files[0]);
+  });
+  // 拖到页面其它位置时阻止浏览器直接打开图片
+  ['dragover','drop'].forEach(function(t){
+    document.addEventListener(t, function(e){ if(e.target!==yzDrop && !yzDrop.contains(e.target)) e.preventDefault(); });
+  });
+  window.yzResetDrop = yzResetDrop;
   document.getElementById('prod-overlay').onclick=function(e){ if(e.target===this) this.classList.remove('open'); };
 
   if(token) enter();
