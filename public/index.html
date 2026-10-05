@@ -389,11 +389,13 @@ h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 500; letter-spac
 .fg-main { position: relative; border-radius: 8px; overflow: hidden; }
 .fg-main img { width: 100%; height: 100%; object-fit: cover; min-height: 420px; }
 .fg-main .fg-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 24px; background: linear-gradient(transparent, rgba(0,0,0,.55)); color: #fff; font-size: 14px; font-weight: 500; }
-.fg-side { display: grid; grid-template-rows: repeat(3, 1fr); gap: 16px; }
+.fg-side { display: grid; grid-template-rows: 1fr; gap: 16px; }
 .fg-item { position: relative; border-radius: 8px; overflow: hidden; }
 .fg-item img { width: 100%; height: 100%; object-fit: cover; min-height: 130px; }
 .fg-item .fg-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px 14px; background: linear-gradient(transparent, rgba(0,0,0,.5)); color: #fff; font-size: 12px; font-weight: 500; }
-@media (max-width: 900px) { .factory-gallery { grid-template-columns: 1fr; } .fg-main img { min-height: 280px; } .fg-side { grid-template-columns: repeat(3, 1fr); grid-template-rows: auto; } .fg-item img { min-height: 120px; } }
+@media (max-width: 900px) { .factory-gallery { grid-template-columns: 1fr; } .fg-main img { min-height: 280px; } .fg-side { grid-template-columns: 1fr; grid-template-rows: auto; } .fg-item img { min-height: 240px; } }
+.process-card { margin-top: 16px; background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 28px; display: grid; place-items: center; box-shadow: var(--sh-1); }
+.process-card img { width: 100%; max-width: 620px; height: auto; border-radius: 4px; }
 @media (max-width: 560px) { .fg-side { grid-template-columns: 1fr; } }
 
 /* =========================================================
@@ -817,23 +819,20 @@ h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 500; letter-spac
       <!-- Factory Gallery -->
       <div class="factory-gallery reveal">
         <div class="fg-main">
-          <img src="images/factory/factory-cut.jpg" alt="Crystal cutting workshop" loading="lazy">
-          <div class="fg-caption">Precision CNC cutting — where every angle is calculated to catch the light.</div>
+          <img src="images/factory/factory-showroom.jpg" alt="Crystal product showroom at Yuzhou Crystal, Pujiang" loading="lazy">
+          <div class="fg-caption">Our product showroom — 20+ collections on display at our Pujiang facility.</div>
         </div>
         <div class="fg-side">
           <div class="fg-item">
-            <img src="images/factory/factory-polish.jpg" alt="Polishing workshop" loading="lazy">
-            <div class="fg-caption">Hand-polishing to optical clarity</div>
-          </div>
-          <div class="fg-item">
-            <img src="images/factory/factory-laser.jpg" alt="Laser engraving" loading="lazy">
-            <div class="fg-caption">3D sub-surface laser engraving</div>
-          </div>
-          <div class="fg-item">
-            <img src="images/factory/factory-qa.jpg" alt="Quality inspection" loading="lazy">
-            <div class="fg-caption">Piece-by-piece quality control</div>
+            <img src="images/factory/factory-workshop.jpg" alt="Crystal cutting and polishing workshop" loading="lazy">
+            <div class="fg-caption">Cutting &amp; polishing workshop</div>
           </div>
         </div>
+      </div>
+
+      <!-- Process flow (real production line, 12 steps) -->
+      <div class="process-card reveal">
+        <img src="images/factory/process-flow.jpg" alt="12-step crystal crafting process: material, sawing, binding, grinding, polishing, punching, grinding hole, 3D laser, plating, sticking, packing, finished" loading="lazy">
       </div>
 
       <!-- Capabilities Grid -->
