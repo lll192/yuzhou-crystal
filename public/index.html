@@ -415,7 +415,8 @@ h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 500; letter-spac
 .about-points .ap { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; font-weight: 600; color: var(--ink-2); }
 .about-points .ap svg { width: 18px; height: 18px; color: var(--brand); flex: none; margin-top: 2px; }
 .about-visual { position: relative; }
-.about-visual img { display: block; width: 100%; height: auto; object-fit: contain; border-radius: 8px; }
+.about-visual img { display: block; width: 100%; max-width: 336px; height: auto; object-fit: contain; border-radius: 8px; margin: 0 auto; }
+  @media (max-width: 860px) { .about-visual img { max-width: 100%; } }
 .about-visual::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(to right, var(--bg-warm) 0%, rgba(247,245,241,0) 42%); }
 .about-visual::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; box-shadow: inset 0 0 34px 14px rgba(247,245,241,.65); }
 .contact-card { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 34px; box-shadow: var(--sh-1); }
@@ -897,7 +898,7 @@ h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 500; letter-spac
         </div>
       </div>
       <div class="about-visual reveal">
-        <img src="images/about/crystal-vase-hydrangea.jpg" alt="Faceted clear crystal vase with a blue hydrangea arrangement, hand-finished in Pujiang" loading="lazy" width="630" height="560">
+        <img src="images/about/crystal-vase-hydrangea.jpg" alt="Faceted clear crystal vase with a blue hydrangea arrangement, hand-finished in Pujiang" loading="lazy" width="630" height="1014">
       </div>
     </div>
   </section>
