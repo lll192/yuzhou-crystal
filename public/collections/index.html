@@ -21,7 +21,24 @@
   .coll-arrow{padding:0 16px 15px;font-size:13px;color:#777}
   .coll-card:hover .coll-arrow{color:#171717}
   @media(max-width:520px){.coll-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.coll-hero{padding-top:20px}}
-</style>
+.coll-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:22px}
+.coll-cards .cc{border:1px solid #e9e9e9;border-radius:14px;padding:20px 22px;background:#fff}
+.coll-cards .cc h3{margin:0 0 8px;font-size:17px}
+.coll-cards .cc p{margin:0;font-size:14px;line-height:1.7;color:#666}
+.coll-facts{margin:20px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 26px}
+.coll-facts li{position:relative;padding-left:18px;font-size:15px;line-height:1.7;color:#555}
+.coll-facts li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:#171717}
+.coll-faq{margin-top:22px;border-top:1px solid #eee}
+.coll-faq details{border-bottom:1px solid #eee;padding:16px 0}
+.coll-faq summary{cursor:pointer;font-weight:600;font-size:16px;list-style:none}
+.coll-faq summary::-webkit-details-marker{display:none}
+.coll-faq summary::after{content:"+";float:right;color:#777;font-weight:400}
+.coll-faq details[open] summary::after{content:"\2013"}
+.coll-faq details[open] summary{margin-bottom:8px}
+.coll-faq .a{margin:0;font-size:15px;line-height:1.75;color:#555;max-width:850px}
+@media(max-width:860px){.coll-facts{grid-template-columns:1fr}.coll-cards{grid-template-columns:1fr}}
+@media(max-width:520px){.coll-cards{grid-template-columns:1fr}}
+  </style>
 </head>
 <body class="seo-page">
 <header class="seo-header"><div class="seo-wrap"><a class="seo-brand" href="/">YUZHOU CRYSTAL</a><a class="seo-home" href="/">&#8592; Home</a></div></header>
@@ -41,7 +58,56 @@
     <a class="coll-card" href="/crystal-perfume-fashion/"><img src="/cat-perfume.jpg" alt="Crystal perfume and fashion components" loading="lazy"><div class="coll-name">Perfume &amp; Fashion</div><div class="coll-arrow">View collection &#8594;</div></a>
     <a class="coll-card" href="/crystal-vases/"><img src="/cat-vases.jpg" alt="Crystal vases" loading="lazy"><div class="coll-name">Crystal Vases</div><div class="coll-arrow">View collection &#8594;</div></a>
   </div>
-</main>
+  <section class="seo-section"><div class="seo-wrap">
+    <h2>What you find in each collection</h2>
+    <p>Our catalogue is grouped into eight crystal collections. Each one covers a different use &mdash; awards and presentation pieces, interior decoration, corporate gifts, table settings or fragrance components. Every collection is produced from the same K9 optical crystal body, so finish, engraving and packaging options stay consistent from one group to the next. What changes is shape, tooling and the way a piece is packed for shipping.</p>
+    <ul class="coll-facts">
+      <li><strong>Trophies and awards</strong> &mdash; cups, columns, shields, plates and custom award shapes, often with a coloured or mirrored base.</li>
+      <li><strong>Home decor and figurines</strong> &mdash; decorative sculptures, animals, architectural forms and seasonal pieces for retail shelves.</li>
+      <li><strong>Office and desk gifts</strong> &mdash; paperweights, desk accessories, keyrings and corporate logo pieces produced in small or large runs.</li>
+      <li><strong>Photo frames</strong> &mdash; bevel-edged frames in portrait and landscape, with stand or wall fixing.</li>
+      <li><strong>Candle holders</strong> &mdash; pressed and cut holders for tea lights, tapers and pillar candles.</li>
+      <li><strong>Tableware and barware</strong> &mdash; tumblers, wine and whisky glasses, decanters and serving pieces.</li>
+      <li><strong>Perfume and fashion components</strong> &mdash; bottle bodies, stoppers, pendants and small fashion hardware.</li>
+      <li><strong>Vases</strong> &mdash; crystal vases and bowls in a range of heights, supplied with a separately supported base.</li>
+    </ul>
+  </div></section>
+  <section class="seo-section"><div class="seo-wrap">
+    <h2>How our collections are made</h2>
+    <p>Every piece follows the same four-stage route through the factory. Because cutting and engraving run on the same line, pieces with personalisation carry the same lead time as plain ones.</p>
+    <div class="coll-cards">
+      <div class="cc"><h3>Material selection</h3><p>Blank crystal is inspected before it is cut. We use K9 optical crystal, and every piece leaving the factory is lead-free.</p></div>
+      <div class="cc"><h3>Cutting and shaping</h3><p>Shapes are cut to the tool drawing, then edges are bevelled and faceted on the grinding line.</p></div>
+      <div class="cc"><h3>Polishing and finishing</h3><p>Each piece is polished to a clear or frosted surface. Colour, plating and inner 3D engraving are applied here.</p></div>
+      <div class="cc"><h3>Engraving and packing</h3><p>Artwork is set from your vector file or a 300 dpi bitmap, then the finished piece goes into an export carton.</p></div>
+    </div>
+  </div></section>
+  <section class="seo-section"><div class="seo-wrap">
+    <h2>Commercial terms across the collections</h2>
+    <p>These terms hold across all eight collections. Figures move with product size and finish, so confirm them against the piece you have in mind.</p>
+    <ul class="coll-facts">
+      <li><strong>Minimum order</strong> &mdash; around 60&ndash;100 pieces per design, and several designs can be mixed into one order.</li>
+      <li><strong>Lead time</strong> &mdash; samples in 7&ndash;10 days, bulk production in 25&ndash;55 days.</li>
+      <li><strong>Sampling</strong> &mdash; the sample fee is charged by the piece, and part of it is refunded once the order reaches USD 8,000.</li>
+      <li><strong>Tooling</strong> &mdash; tooling is not charged for the products that use a standard tool.</li>
+      <li><strong>Material</strong> &mdash; K9 optical crystal, lead-free across the range, SGS reports available.</li>
+      <li><strong>Export cartons</strong> &mdash; five-layer export carton, gift box or protective packing to your specification.</li>
+      <li><strong>Trade terms</strong> &mdash; FOB Ningbo or Shanghai, T/T 30% deposit and 70% against bill of lading copy.</li>
+      <li><strong>Markets</strong> &mdash; we ship to North America, Europe, Australia and South-East Asia.</li>
+    </ul>
+  </div></section>
+  <section class="seo-section"><div class="seo-wrap">
+    <h2>Questions about the collections</h2>
+    <div class="coll-faq">
+      <details><summary>Can I mix several designs in one first order?</summary><div class="a">Yes. The minimum of roughly 60&ndash;100 pieces applies per design, but you can combine designs and still ship as one order.</div></details>
+      <details><summary>Do you charge for tooling?</summary><div class="a">For products made on an existing tool there is no tooling charge. Some new shapes need a new tool, and we quote that before you commit.</div></details>
+      <details><summary>How long from asking to a sample?</summary><div class="a">Around 7&ndash;10 days for a standard piece. A shape that needs new tooling starts once the tool is ready.</div></details>
+      <details><summary>Can I use my own artwork?</summary><div class="a">Yes. Vector files are the best result; a 300 dpi bitmap also engraves acceptably. We check the file before setting the plate.</div></details>
+      <details><summary>Is the crystal lead-free?</summary><div class="a">All pieces are made in lead-free K9 optical crystal. SGS, ISO 9001 and RoHS documentation can be provided on request.</div></details>
+      <details><summary>What happens if a shipment arrives damaged?</summary><div class="a">It depends on the product and how it arrived, so send us photos of the carton and the piece and we will tell you the right remedy.</div></details>
+    </div>
+  </div></section>
+  </main>
 <footer class="seo-footer"><div class="seo-wrap">Yuzhou Crystal &middot; Pujiang, Zhejiang, China &middot; <a href="/contact/">Contact us</a></div></footer>
 </body>
 </html>
