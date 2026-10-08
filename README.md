@@ -297,7 +297,7 @@ flowchart LR
 | 降级 | 数据库原生模块不可用时自动 JSONL 兜底，功能不中断 |
 | 可观测 | `/api/health` + 后台统计卡（总数 / 询价 / 定制 / 未处理） |
 | 本地开发 | `npm run dev` 自重启；`ADMIN_TOKEN` 未设置时启动打印随机 token |
-| 文档 | 本 README（项目页）+ `docs/TECHNICAL-README.md`（英文技术文档）+ `DEPLOY_GUIDE.md` / `ALIYUN_DEPLOY_GUIDE.md` / `PRODUCT_MANAGEMENT.md` |
+| 文档 | 本 README（项目页）+ `DEPLOY_GUIDE.md` / `ALIYUN_DEPLOY_GUIDE.md` / `MIGRATION_GUIDE.md` / `PRODUCT_MANAGEMENT.md` |
 
 ---
 
@@ -362,7 +362,6 @@ yuzhou-crystal/
 │   ├── images/{factory,about,products}
 │   └── <16 个页面目录>        # 8 品类落地页 + 总览 + 5 能力页 + 404
 ├── docs/
-│   ├── TECHNICAL-README.md    # 英文技术文档（API 参考 / 部署细节）
 │   └── screens/               # 本项目页使用的真实站点截图
 ├── scripts/          运维与备份脚本
 tools/            数据处理小工具
