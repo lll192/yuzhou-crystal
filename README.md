@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1 style="text-align:center;margin-bottom:2px">Yuzhou Crystal · 域舟水晶</h1>
+<h1 style="text-align:center;margin-bottom:2px">Yuzhou Crystal · 宇宙水晶</h1>
 <p align="center"><strong>水晶制品外贸 B2B 询盘平台 —— 全栈工程</strong></p>
 
 [![Node](https://img.shields.io/badge/Node-20%20LTS-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
