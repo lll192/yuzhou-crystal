@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1 style="text-align:center;margin-bottom:2px">Yuzhou Crystal · 域舟水晶</h1>
+<h1 style="text-align:center;margin-bottom:2px">Yuzhou Crystal · 宇宙水晶</h1>
 <p align="center"><strong>水晶制品外贸 B2B 询盘平台 —— 全栈工程</strong></p>
 
 [![Node](https://img.shields.io/badge/Node-20%20LTS-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
@@ -15,9 +15,9 @@
 
 ## 一句话说明
 
-把一个"只能让客户留邮箱"的水晶制品外贸官网，重做成**完整全栈询盘平台**：
+一个**完整全栈询盘平台**：
 前端展示 + 后端接单 + 数据库落库 + 后台 CRM + SEO 自然获客，
-并且这套系统**已经在真实域名上跑了两个多月、收下真实海外买家询盘**。
+并且这套系统**已经在真实域名上运行，并收下真实海外买家询盘**。
 
 | | |
 |---|---|
